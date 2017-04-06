@@ -8,6 +8,6 @@ return [
             PDO::NULL_TO_STRING => true
         ],*/
     'username' => 'root',
-    'password' => 'passw0rd',
+    'password' => 'fre$puv8jewR',
     'charset' => 'utf8',
 ];

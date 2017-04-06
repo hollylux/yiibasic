@@ -31,3 +31,4 @@ tests/_support/_generated
 
 # credential in it.
 config/db.php
+
