@@ -9,60 +9,35 @@ use yii\widgets\ActiveForm;
 ?>
 
 <div class="product-form">
-    <div class="row">
 
-        <?php $form = ActiveForm::begin(); ?>
-        <div class="col-sm-6 form-group">
-            <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
-        </div>
-        <div class="col-sm-6 form-group">
-            <?= $form->field($model, 'description')->textInput(['maxlength' => true]) ?>
-        </div>
-            <?= $form->field($model, 'status')->hiddenInput()->label(false) ?>
-        <div class="col-sm-6 form-group">
-            <?= $form->field($model, 'image_name')->textInput(['maxlength' => true]) ?>
-        </div>
-        <div class="col-sm-6 form-group">
-            <?= $form->field($model, 'price')->textInput(['maxlength' => true]) ?>
-        </div>
-        <div class="col-sm-6 form-group">
-            <?= $form->field($model, 'walmart_price')->textInput(['maxlength' => true]) ?>
-        </div>
-        <div class="col-sm-6 form-group">
-            <?= $form->field($model, 'walmart_url')->textInput(['maxlength' => true]) ?>
-        </div>
-        <div class="col-sm-6 form-group">
-            <?= $form->field($model, 'tmall_price')->textInput(['maxlength' => true]) ?>
-        </div>
-        <div class="col-sm-6 form-group">
-            <?= $form->field($model, 'tmall_url')->textInput(['maxlength' => true]) ?>
-        </div>
-        <div class="col-sm-6 form-group">
-            <?= $form->field($model, 'costco_price')->textInput(['maxlength' => true]) ?>
-        </div>
-        <div class="col-sm-6 form-group">
-            <?= $form->field($model, 'costco_url')->textInput(['maxlength' => true]) ?>
-        </div>
-        <div class="col-sm-6 form-group">
-            <?= $form->field($model, 'target_price')->textInput(['maxlength' => true]) ?>
-        </div>
-        <div class="col-sm-6 form-group">
-            <?= $form->field($model, 'target_url')->textInput(['maxlength' => true]) ?>
-        </div>
-        <div class="col-sm-6 form-group">
-            <?= $form->field($model, 'amazon_price')->textInput(['maxlength' => true]) ?>
-        </div>
-        <div class="col-sm-6 form-group">
-            <?= $form->field($model, 'amazon_url')->textInput(['maxlength' => true]) ?>
-        </div>
-        <?= $form->field($model, 'create_time')->hiddenInput()->label(false) ?>
+    <?php $form = ActiveForm::begin(); ?>
 
-        <?= $form->field($model, 'update_time')->hiddenInput()->label(false) ?>
+    <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
-        <div class="col-sm-6 form-group">
-            <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
-        </div>
+    <?= $form->field($model, 'description')->textInput(['maxlength' => true]) ?>
 
-        <?php ActiveForm::end(); ?>
+    <?= $form->field($model, 'status')->textInput() ?>
+
+    <?= $form->field($model, 'images')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'my_price')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'us_price')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'us_url')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'cn_price')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'cn_url')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'create_time')->textInput() ?>
+
+    <?= $form->field($model, 'update_time')->textInput() ?>
+
+    <div class="form-group">
+        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
+
+    <?php ActiveForm::end(); ?>
+
 </div>

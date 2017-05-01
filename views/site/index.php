@@ -2,14 +2,14 @@
 
 /* @var $this yii\web\View */
 
-$this->title = '美品汇-来自美国本土';
+$this->title = '美品汇-美国本土直供';
 ?>
 <div class="site-index">
 
     <div class="jumbotron">
-        <h1>美品汇 - 开始享受半个美国生活</h1>
+        <h1>美品汇 - 包邮包税，美国本土发货</h1>
 
-        <p class="lead">所列全部产品服务来自美国本土 Costco, Target, Walmart, Kohls， Amazon... </p>
+        <p class="lead">全部商品来自美国本土Costco, Target, Walmart, Kohls, Amazon等大型超市卖场 </p>
 
         <!--<p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">开抢</a></p>-->
     </div>

@@ -19,8 +19,8 @@ class ProductSearch extends Product
     {
         return [
             [['id', 'status'], 'integer'],
-            [['name', 'description', 'image_name', 'walmart_url', 'tmall_url', 'costco_url', 'target_url', 'amazon_url', 'create_time', 'update_time'], 'safe'],
-            [['price', 'walmart_price', 'tmall_price', 'costco_price', 'target_price', 'amazon_price'], 'number'],
+            [['name', 'description', 'images', 'us_url', 'cn_url', 'create_time', 'update_time'], 'safe'],
+            [['my_price', 'us_price', 'cn_price'], 'number'],
         ];
     }
 
@@ -62,24 +62,18 @@ class ProductSearch extends Product
         $query->andFilterWhere([
             'id' => $this->id,
             'status' => $this->status,
-            'price' => $this->price,
-            'walmart_price' => $this->walmart_price,
-            'tmall_price' => $this->tmall_price,
-            'costco_price' => $this->costco_price,
-            'target_price' => $this->target_price,
-            'amazon_price' => $this->amazon_price,
+            'my_price' => $this->my_price,
+            'us_price' => $this->us_price,
+            'cn_price' => $this->cn_price,
             'create_time' => $this->create_time,
             'update_time' => $this->update_time,
         ]);
 
         $query->andFilterWhere(['like', 'name', $this->name])
             ->andFilterWhere(['like', 'description', $this->description])
-            ->andFilterWhere(['like', 'image_name', $this->image_name])
-            ->andFilterWhere(['like', 'walmart_url', $this->walmart_url])
-            ->andFilterWhere(['like', 'tmall_url', $this->tmall_url])
-            ->andFilterWhere(['like', 'costco_url', $this->costco_url])
-            ->andFilterWhere(['like', 'target_url', $this->target_url])
-            ->andFilterWhere(['like', 'amazon_url', $this->amazon_url]);
+            ->andFilterWhere(['like', 'images', $this->images])
+            ->andFilterWhere(['like', 'us_url', $this->us_url])
+            ->andFilterWhere(['like', 'cn_url', $this->cn_url]);
 
         return $dataProvider;
     }

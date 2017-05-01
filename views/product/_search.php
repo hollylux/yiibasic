@@ -23,29 +23,17 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'status') ?>
 
-    <?= $form->field($model, 'image_name') ?>
+    <?= $form->field($model, 'images') ?>
 
-    <?php // echo $form->field($model, 'price') ?>
+    <?php // echo $form->field($model, 'my_price') ?>
 
-    <?php // echo $form->field($model, 'walmart_price') ?>
+    <?php // echo $form->field($model, 'us_price') ?>
 
-    <?php // echo $form->field($model, 'walmart_url') ?>
+    <?php // echo $form->field($model, 'us_url') ?>
 
-    <?php // echo $form->field($model, 'tmall_price') ?>
+    <?php // echo $form->field($model, 'cn_price') ?>
 
-    <?php // echo $form->field($model, 'tmall_url') ?>
-
-    <?php // echo $form->field($model, 'costco_price') ?>
-
-    <?php // echo $form->field($model, 'costco_url') ?>
-
-    <?php // echo $form->field($model, 'target_price') ?>
-
-    <?php // echo $form->field($model, 'target_url') ?>
-
-    <?php // echo $form->field($model, 'amazon_price') ?>
-
-    <?php // echo $form->field($model, 'amazon_url') ?>
+    <?php // echo $form->field($model, 'cn_url') ?>
 
     <?php // echo $form->field($model, 'create_time') ?>
 

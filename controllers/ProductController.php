@@ -8,18 +8,17 @@ use app\models\ProductSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use app\models\UploadForm;
-use yii\web\UploadedFile;
 
 /**
  * ProductController implements the CRUD actions for Product model.
  */
-class ProductController extends Controller {
-
+class ProductController extends Controller
+{
     /**
      * @inheritdoc
      */
-    public function behaviors() {
+    public function behaviors()
+    {
         return [
             'verbs' => [
                 'class' => VerbFilter::className(),
@@ -34,13 +33,14 @@ class ProductController extends Controller {
      * Lists all Product models.
      * @return mixed
      */
-    public function actionIndex() {
+    public function actionIndex()
+    {
         $searchModel = new ProductSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
-                    'searchModel' => $searchModel,
-                    'dataProvider' => $dataProvider,
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
         ]);
     }
 
@@ -49,9 +49,10 @@ class ProductController extends Controller {
      * @param integer $id
      * @return mixed
      */
-    public function actionView($id) {
+    public function actionView($id)
+    {
         return $this->render('view', [
-                    'model' => $this->findModel($id),
+            'model' => $this->findModel($id),
         ]);
     }
 
@@ -60,32 +61,17 @@ class ProductController extends Controller {
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate() {
+    public function actionCreate()
+    {
         $model = new Product();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
-
-            $this->initializeProduct($model);
             return $this->render('create', [
-                        'model' => $model,
+                'model' => $model,
             ]);
         }
-    }
-
-    private function initializeProduct($model) {
-        $model->status = 1;
-        $model->amazon_price = 0.00;
-        $model->amazon_url = " ";
-        $model->costco_price = 0.00;
-        $model->costco_url = " ";
-        $model->walmart_price = 0.00;
-        $model->walmart_url = " ";
-        $model->target_price = 0.00;
-        $model->target_url = " ";
-        $model->create_time = \date('Y-m-d H:i:s');
-        $model->update_time = \date('Y-m-d H:i:s');
     }
 
     /**
@@ -94,14 +80,15 @@ class ProductController extends Controller {
      * @param integer $id
      * @return mixed
      */
-    public function actionUpdate($id) {
+    public function actionUpdate($id)
+    {
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
-                        'model' => $model,
+                'model' => $model,
             ]);
         }
     }
@@ -112,7 +99,8 @@ class ProductController extends Controller {
      * @param integer $id
      * @return mixed
      */
-    public function actionDelete($id) {
+    public function actionDelete($id)
+    {
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
@@ -125,27 +113,12 @@ class ProductController extends Controller {
      * @return Product the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
-    protected function findModel($id) {
+    protected function findModel($id)
+    {
         if (($model = Product::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
-    
-    public function actionUpload()
-    {
-        $model = new UploadForm();
-
-        if (Yii::$app->request->isPost) {
-            $model->imageFile = UploadedFile::getInstance($model, 'imageFile');
-            if ($model->upload()) {
-                // file is uploaded successfully
-                return $this->render('images',['model' => $model]);
-            }
-        }
-
-        return $this->render('upload', ['model' => $model]);
-    }
-
 }
