@@ -19,7 +19,7 @@ class ProductSearch extends Product
     {
         return [
             [['id', 'status'], 'integer'],
-            [['name', 'description', 'images', 'us_url', 'cn_url', 'create_time', 'update_time'], 'safe'],
+            [['name', 'description', 'images', 'us_url', 'cn_url'], 'safe'],
             [['my_price', 'us_price', 'cn_price'], 'number'],
         ];
     }
@@ -61,12 +61,13 @@ class ProductSearch extends Product
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'status' => $this->status,
+            'status' => 1,
+            //'status' => '$this->status',
             'my_price' => $this->my_price,
             'us_price' => $this->us_price,
             'cn_price' => $this->cn_price,
-            'create_time' => $this->create_time,
-            'update_time' => $this->update_time,
+            //'created_at' => $this->created_at,
+            //'updated_at' => $this->updated_at,
         ]);
 
         $query->andFilterWhere(['like', 'name', $this->name])

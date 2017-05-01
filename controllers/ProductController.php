@@ -64,10 +64,11 @@ class ProductController extends Controller
     public function actionCreate()
     {
         $model = new Product();
-
+        $this->getUpdateTime($model);
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
+            $model->status = 1;
             return $this->render('create', [
                 'model' => $model,
             ]);
@@ -83,7 +84,8 @@ class ProductController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-
+        $this->getUpdateTime($model);
+        
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
@@ -91,6 +93,16 @@ class ProductController extends Controller
                 'model' => $model,
             ]);
         }
+    }
+    
+    /**
+     * Update time before saving to DB.
+     * @param type $model
+     * @return boolean
+     */
+    private function getUpdateTime($model){
+        $model->updated_at = date('Y-m-d H:i:s');
+        return true;
     }
 
     /**
@@ -101,7 +113,8 @@ class ProductController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        //$this->findModel($id)->delete();
+        $this->findModel($id)->updateAttributes(['status' => 0]);
 
         return $this->redirect(['index']);
     }
@@ -115,10 +128,10 @@ class ProductController extends Controller
      */
     protected function findModel($id)
     {
-        if (($model = Product::findOne($id)) !== null) {
+        if (($model = Product::findOne(['id' => $id, 'status' => 1])) !== null) {
             return $model;
         } else {
-            throw new NotFoundHttpException('The requested page does not exist.');
+            throw new NotFoundHttpException('The requested record does not exist.');
         }
     }
 }

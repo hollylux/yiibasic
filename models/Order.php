@@ -13,11 +13,11 @@ use Yii;
  * @property string $payment
  * @property integer $user_id
  * @property string $user_name
- * @property string $create_time
- * @property string $update_time
+ * @property integer $created_at
+ * @property integer $updated_at
  * @property integer $status
- * @property string $ship_time
- * @property string $deliver_time
+ * @property string $shiped_at
+ * @property string $delivered_at
  * @property string $tracking_number
  */
 class Order extends \yii\db\ActiveRecord
@@ -36,10 +36,10 @@ class Order extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['product_id', 'amount', 'payment', 'user_id', 'user_name'], 'required'],
-            [['product_id', 'amount', 'user_id', 'status'], 'integer'],
+            [['product_id', 'amount', 'payment', 'user_id', 'user_name', 'created_at', 'updated_at'], 'required'],
+            [['product_id', 'amount', 'user_id', 'created_at', 'updated_at', 'status'], 'integer'],
             [['payment'], 'number'],
-            [['create_time', 'update_time', 'ship_time', 'deliver_time'], 'safe'],
+            [['shiped_at', 'delivered_at'], 'safe'],
             [['user_name'], 'string', 'max' => 20],
             [['tracking_number'], 'string', 'max' => 16],
         ];
@@ -57,11 +57,11 @@ class Order extends \yii\db\ActiveRecord
             'payment' => 'Payment',
             'user_id' => 'User ID',
             'user_name' => 'User Name',
-            'create_time' => 'Create Time',
-            'update_time' => 'Update Time',
+            'created_at' => 'Created At',
+            'updated_at' => 'Updated At',
             'status' => 'Status',
-            'ship_time' => 'Ship Time',
-            'deliver_time' => 'Deliver Time',
+            'shiped_at' => 'Shiped At',
+            'delivered_at' => 'Delivered At',
             'tracking_number' => 'Tracking Number',
         ];
     }

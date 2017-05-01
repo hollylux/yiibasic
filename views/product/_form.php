@@ -11,31 +11,41 @@ use yii\widgets\ActiveForm;
 <div class="product-form">
 
     <?php $form = ActiveForm::begin(); ?>
+    <div class="col-sm-6 form-group">
+        <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
+    </div>
+    <div class="col-sm-6 form-group">
+        <?= $form->field($model, 'description')->textInput(['maxlength' => true]) ?>
+    </div>
 
-    <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
+    <div class="col-sm-6 form-group">
 
-    <?= $form->field($model, 'description')->textInput(['maxlength' => true]) ?>
+        <?= $form->field($model, 'images')->textInput(['maxlength' => true]) ?>
+    </div>
+    <div class="col-sm-6 form-group">
+        <?= $form->field($model, 'my_price')->textInput(['maxlength' => true]) ?>
+    </div>
+    <div class="col-sm-6 form-group">
+        <?= $form->field($model, 'us_price')->textInput(['maxlength' => true]) ?>
+    </div>
 
-    <?= $form->field($model, 'status')->textInput() ?>
+    <div class="col-sm-6 form-group">
+        <?= $form->field($model, 'us_url')->textInput(['maxlength' => true]) ?>
+    </div>
+    <div class="col-sm-6 form-group">
+        <?= $form->field($model, 'cn_price')->textInput(['maxlength' => true]) ?>
+    </div>
 
-    <?= $form->field($model, 'images')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'my_price')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'us_price')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'us_url')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'cn_price')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'cn_url')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'create_time')->textInput() ?>
-
-    <?= $form->field($model, 'update_time')->textInput() ?>
-
-    <div class="form-group">
+    <div class="col-sm-6 form-group">
+        <?= $form->field($model, 'cn_url')->textInput(['maxlength' => true]) ?>
+    </div>
+    
+    <div class="col-sm-6 form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+    </div>
+    
+    <div class="col-sm-6 form-group">
+        <?= $form->field($model, 'status')->hiddenInput()->label(false) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

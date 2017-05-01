@@ -33,11 +33,11 @@ CREATE TABLE IF NOT EXISTS `order` (
   `payment` decimal(6,2) NOT NULL,
   `user_id` int(11) NOT NULL,
   `user_name` char(20) NOT NULL,
-  `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `update_time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `created_at` int(11) NOT NULL,
+  `updated_at` int(11) NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT '1',
-  `ship_time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `deliver_time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `shiped_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `delivered_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `tracking_number` char(16) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
@@ -59,8 +59,8 @@ CREATE TABLE IF NOT EXISTS `product` (
   `us_url` char(255) NOT NULL DEFAULT '',
   `cn_price` decimal(6,2) NOT NULL DEFAULT '0.00',
   `cn_url` char(255) NOT NULL DEFAULT '',
-  `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `update_time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
@@ -78,8 +78,8 @@ CREATE TABLE IF NOT EXISTS `user` (
   `qq` int(11) NOT NULL DEFAULT '0',
   `cellphone` int(11) NOT NULL DEFAULT '0',
   `address` char(96) NOT NULL DEFAULT '',
-  `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `update_time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `status` tinyint(1) NOT NULL DEFAULT '1',
   `email` char(32) NOT NULL DEFAULT '',
   `ip` char(15) NOT NULL DEFAULT '0.0.0.0',

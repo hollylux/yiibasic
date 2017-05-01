@@ -22,15 +22,15 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'user_name')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'create_time')->textInput() ?>
+    <?= $form->field($model, 'created_at')->textInput() ?>
 
-    <?= $form->field($model, 'update_time')->textInput() ?>
+    <?= $form->field($model, 'updated_at')->textInput() ?>
 
     <?= $form->field($model, 'status')->textInput() ?>
 
-    <?= $form->field($model, 'ship_time')->textInput() ?>
+    <?= $form->field($model, 'shiped_at')->textInput() ?>
 
-    <?= $form->field($model, 'deliver_time')->textInput() ?>
+    <?= $form->field($model, 'delivered_at')->textInput() ?>
 
     <?= $form->field($model, 'tracking_number')->textInput(['maxlength' => true]) ?>
 

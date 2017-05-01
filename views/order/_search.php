@@ -27,15 +27,15 @@ use yii\widgets\ActiveForm;
 
     <?php // echo $form->field($model, 'user_name') ?>
 
-    <?php // echo $form->field($model, 'create_time') ?>
+    <?php // echo $form->field($model, 'created_at') ?>
 
-    <?php // echo $form->field($model, 'update_time') ?>
+    <?php // echo $form->field($model, 'updated_at') ?>
 
     <?php // echo $form->field($model, 'status') ?>
 
-    <?php // echo $form->field($model, 'ship_time') ?>
+    <?php // echo $form->field($model, 'shiped_at') ?>
 
-    <?php // echo $form->field($model, 'deliver_time') ?>
+    <?php // echo $form->field($model, 'delivered_at') ?>
 
     <?php // echo $form->field($model, 'tracking_number') ?>
 
