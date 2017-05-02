@@ -18,7 +18,7 @@ use yii\widgets\ActiveForm;
         <?= $form->field($model, 'description')->textInput(['maxlength' => true]) ?>
     </div>
 
-    <div class="col-sm-6 form-group">
+    <div class="col-sm-12 form-group">
 
         <?= $form->field($model, 'images')->textInput(['maxlength' => true]) ?>
     </div>

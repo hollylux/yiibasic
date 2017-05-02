@@ -19,11 +19,12 @@ class UploadForm extends Model
         ];
     }
     
+    
     public function upload()
     {
         if ($this->validate()) {
-            $curTime = \date('YmdHis');
-            $this->imageFile->saveAs('../imgstore/' . $curTime . '.' . $this->imageFile->extension);
+            $curTime = \date('ymdHis');
+            $this->imageFile->saveAs(\Yii::getAlias('@webroot') . '/mstore/' . $this->imageFile->baseName . $curTime . '.' . $this->imageFile->extension);
             return true;
         } else {
             return false;

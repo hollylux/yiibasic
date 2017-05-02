@@ -25,9 +25,11 @@ AppAsset::register($this);
 <?php $this->beginBody() ?>
 
 <div class="wrap">
+   
     <?php
     NavBar::begin([
-        'brandLabel' => '美品汇',
+        //'brandLabel' => '北美40号公路',
+        'brandLabel' =>  '北美40' . Html::img('@web/images/I40_sm.png', ['width' => '50']),
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
