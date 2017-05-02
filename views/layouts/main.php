@@ -29,7 +29,7 @@ AppAsset::register($this);
     <?php
     NavBar::begin([
         //'brandLabel' => '北美40号公路',
-        'brandLabel' =>  '北美40' . Html::img('@web/images/I40_sm.png', ['width' => '50']),
+        'brandLabel' =>  '北美40' . Html::img('@web/images/I40_sm.png', ['width' => '30']),
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
