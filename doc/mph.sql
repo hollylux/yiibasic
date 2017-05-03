@@ -53,7 +53,7 @@ CREATE TABLE IF NOT EXISTS `product` (
   `name` char(60) NOT NULL,
   `description` varchar(255) NOT NULL DEFAULT '',
   `status` tinyint(1) NOT NULL DEFAULT '1',
-  `images` char(32) NOT NULL DEFAULT '',
+  `images` char(64) NOT NULL DEFAULT '',
   `my_price` decimal(6,2) NOT NULL,
   `us_price` decimal(6,2) NOT NULL DEFAULT '0.00',
   `us_url` char(255) NOT NULL DEFAULT '',

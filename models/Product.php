@@ -41,7 +41,7 @@ class Product extends \yii\db\ActiveRecord {
             // [['created_at', 'updated_at'], 'safe'],
             [['name'], 'string', 'max' => 60],
             [['description', 'us_url', 'cn_url'], 'string', 'max' => 255],
-            [['images'], 'string', 'max' => 32],
+            [['images'], 'string', 'max' => 64],
         ];
     }
 /*
