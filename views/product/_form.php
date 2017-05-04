@@ -21,14 +21,14 @@ use yii\widgets\ActiveForm;
     <div class="col-sm-12 form-group">
         <label>Images</label>
         <hr/>
-        <div id="imageGroup"></div>
+        <div id="bl-prod-img"></div>
         <hr/>
         <input type="file" id="imageFile" name="imageFile"/>
     </div>
 
     <div class="col-sm-12 form-group">
-        <button type="button" class="btn btn-success" onclick="uploadImg();">Upload</button>
-        <button type="button" class="btn btn-warning" onclick="deleteImg();">Remove All</button>
+        <button type="button" id="bl-btn-upload" class="btn btn-success" onclick="uploadImg();">Upload</button>
+        <button type="button" id="bl-btn-delete" class="btn btn-warning" onclick="deleteImg();">Delete</button>
         <hr/>
     </div>
     <div class="col-sm-6 form-group">
@@ -61,32 +61,3 @@ use yii\widgets\ActiveForm;
     <?php ActiveForm::end(); ?>
 
 </div>
-<script>
-    function uploadImg() {
-        var formData = new FormData($('form')[0]);
-        $.ajax({
-            url: '<?php echo \Yii::$app->getUrlManager()->createUrl('ajax/upload') ?>',
-            type: 'post',
-            data: formData,
-            contentType: false, // NEEDED, DON'T OMIT THIS (requires jQuery 1.6+)
-            processData: false, // NEEDED, DON'T OMIT THIS
-            success: function (data) {
-                var retData = JSON.parse(data);
-                var mbase = '<?= Yii::getAlias('@mstore') ?>/';
-
-                $('<img src="' + mbase + retData.imgURI + '">').load(function () {
-                    $(this).width(150).height(150).appendTo('#imageGroup');
-                    $('#product-images').val(retData.imgURI + $('#product-images').val() + ';');
-                });
-            }
-        });
-    }
-
-    function deleteImg() {
-        if (confirm('Delete all?')) {
-            $('#imageGroup').empty();
-            $('#product-images').val('');
-        }
-
-    }
-</script>

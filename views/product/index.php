@@ -26,7 +26,8 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
             //'id',
-            'images',
+            //'images',
+            [ 'attribute' => 'images', 'headerOptions' => ['style' => 'width:10%'],],
             'name',
             'description',
             //'status',
@@ -38,7 +39,7 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'cn_url:url',
             // 'created_at',
             // 'updated_at',
-            ['class' => 'yii\grid\ActionColumn'],
+            ['class' => 'yii\grid\ActionColumn', 'headerOptions' => ['style' => 'width:10%'],],
         ],
     ]);
     ?>
