@@ -19,7 +19,7 @@ use yii\widgets\ActiveForm;
     </div>
 
     <div class="col-sm-12 form-group">
-        <label>Images</label>
+        <label>Image (1 allowed)</label>
         <hr/>
         <div id="bl-prod-img"></div>
         <hr/>

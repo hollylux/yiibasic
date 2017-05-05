@@ -17,7 +17,7 @@ function uploadImg() {
             var retData = JSON.parse(data);
             $('<img src="' + mbase + retData.imgURI + '">').load(function () {
                 $(this).width(150).height(150).appendTo('#bl-prod-img');
-                $('#product-images').val(retData.imgURI + $('#product-images').val() + ';');
+                $('#product-images').val(retData.imgURI);
             });
             $('#bl-btn-upload').prop("disabled", false);
         }
