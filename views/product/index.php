@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]);  ?>
 
     <p>
-        <?= Html::a('Create Product', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Add Product', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <?php Pjax::begin(); ?>    <?=
     GridView::widget([
@@ -48,6 +48,6 @@ $this->params['breadcrumbs'][] = $this->title;
     //$this->registerJsFile('@web/js/product.js', ['position' => \yii\web\View::POS_END]);
     ?>
     <p>
-        <?= Html::a('Create Product', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Add Product', ['create'], ['class' => 'btn btn-success']) ?>
     </p></div>
 
