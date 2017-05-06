@@ -15,6 +15,7 @@ $this->title = '北美40 - 从此， 开启半个美式生活';
                 <div class="col-sm-4 col-md-3">
                     <div class="thumbnail">
                         <img src="./mstore/<?= $product['images'] ?>" alt="<?= $product['description'] ?>">
+                        <hr/>
                         <div class="caption">
                             <h5><?= $product['name'] ?></h5>
                             <p>¥ <?= $product['cn_price'] ?></p>
@@ -36,7 +37,7 @@ $this->title = '北美40 - 从此， 开启半个美式生活';
             </div>
             <div class="col-md-3">
                 <h2>活动</h2>
-                <p><a class="btn btn-default" href=""> 数据统计 &raquo;</a></p>
+                <p><a class="btn btn-default" href=""> 促销返现 &raquo;</a></p>
             </div>
             <div class="col-md-3">
                 <h2>统计</h2>
