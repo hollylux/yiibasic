@@ -11,6 +11,9 @@ use yii\widgets\ActiveForm;
 <div class="product-form">
 
     <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
+    <div class="col-sm-12 form-group">
+        <?= Html::submitButton($model->isNewRecord ? 'Add' : 'Save', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+    </div>
     <div class="col-sm-6 form-group">
         <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
     </div>
@@ -21,7 +24,9 @@ use yii\widgets\ActiveForm;
     <div class="col-sm-12 form-group">
         <label>Image (1 allowed)</label>
         <hr/>
-        <div id="bl-prod-img"></div>
+        <div id="bl-prod-img">
+            <?=Html::img('@web/mstore/' . $model->images, ['alt' => $model->name, 'height' => '100'])?>
+        </div>
         <hr/>
         <input type="file" id="imageFile" name="imageFile"/>
     </div>
@@ -50,7 +55,7 @@ use yii\widgets\ActiveForm;
     </div>
 
     <div class="col-sm-12 form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'Add' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton($model->isNewRecord ? 'Add' : 'Save', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 
     <div class="col-sm-6 form-group">

@@ -24,10 +24,16 @@ $this->params['breadcrumbs'][] = $this->title;
         // 'tableOptions' => ['id' => 'prodTblId'],
         'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-            //'id',
+            //['class' => 'yii\grid\SerialColumn'],
+            'id',
             //'images',
-            [ 'attribute' => 'images', 'headerOptions' => ['style' => 'width:10%'],],
+            //[ 'attribute' => 'images', 'headerOptions' => ['style' => 'width:10%'],],
+            ['label' => 'Image',
+                'value' => function($data) {
+                    //return $data->images;
+                    return Html::img('@web/mstore/' . $data->images, ['alt' => $data->name, 'height' => '100']);
+                },
+                'format' => 'html'],
             'name',
             'description',
             //'status',

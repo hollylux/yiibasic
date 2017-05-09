@@ -16,24 +16,34 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p>
         <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
+        <?=
+        Html::a('Delete', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => 'Are you sure you want to delete this item?',
                 'method' => 'post',
             ],
-        ]) ?>
-        <?= Html::a('Add Product', ['create'], ['class' => 'btn btn-success']) ?>
+        ])
+        ?>
+    <?= Html::a('Add Product', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
-    <?= DetailView::widget([
+    <?=
+    DetailView::widget([
         'model' => $model,
         'attributes' => [
             'id',
             'name',
             'description',
-           // 'status',
-            'images',
+            // 'status',
+            // 'images',
+            ['label' => 'Image',
+                'value' => function($data) {
+                    //return $data->images;
+                    return Html::img('@web/mstore/' . $data->images, ['alt' => $data->name, 'height' => '100']);
+                },
+                'format' => 'html'
+            ],
             'my_price',
             'us_price',
             'us_url:url',
@@ -42,6 +52,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'created_at',
             'updated_at',
         ],
-    ]) ?>
+    ])
+    ?>
 
 </div>
