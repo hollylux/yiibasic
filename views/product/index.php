@@ -28,7 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             //'images',
             //[ 'attribute' => 'images', 'headerOptions' => ['style' => 'width:10%'],],
-            [//'label' => 'Image',
+            ['label' => 'Image',
                 'attribute' => 'images',
                 'value' => function($data) {
                     //return $data->images;
