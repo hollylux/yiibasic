@@ -30,9 +30,10 @@ $this->params['breadcrumbs'][] = $this->title;
             //[ 'attribute' => 'images', 'headerOptions' => ['style' => 'width:10%'],],
             ['label' => 'Image',
                 'attribute' => 'images',
-                'value' => function($data) {
+                
+                'value' => function($model) {
                     //return $data->images;
-                    return Html::img('@web/mstore/' . $data->images, ['alt' => $data->name, 'height' => '100']);
+                    return Html::img('@web/mstore/' . $model->images, ['alt' => $model->name, 'height' => '100']);
                 },
                 'format' => 'html'],
             'name',
@@ -46,7 +47,7 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'cn_url:url',
             // 'created_at',
             // 'updated_at',
-            ['class' => 'yii\grid\ActionColumn', 'headerOptions' => ['style' => 'width:10%'],],
+            ['class' => 'yii\grid\ActionColumn', 'header' => 'Actions', 'headerOptions' => ['style' => 'width:10%'],],
         ],
     ]);
     ?>

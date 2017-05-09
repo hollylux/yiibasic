@@ -55,7 +55,8 @@ AppAsset::register($this);
                             )
                             . Html::endForm()
                             . '</li>'
-                            )
+                            ),
+                    ['label' => 'Cart', 'url' => ['/cart/index']],
                 ],
             ]);
             NavBar::end();
