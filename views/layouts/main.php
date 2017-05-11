@@ -23,6 +23,7 @@ AppAsset::register($this);
         <script>
             var mbase = '<?= Yii::getAlias('@mstore') ?>/';
             var ajaxUploadUrl = '<?= Yii::$app->getUrlManager()->createUrl('ajax/upload') ?>';
+            var ajaxCartUrl = '<?= Yii::$app->getUrlManager()->createUrl('ajax/cart') ?>';
         </script>
     </head>
     <body>
@@ -56,7 +57,12 @@ AppAsset::register($this);
                             . Html::endForm()
                             . '</li>'
                             ),
-                    ['label' => 'Cart', 'url' => ['/cart/index']],
+                    '<li>
+                        <a href="/index.php?r=cart/index">
+                         Cart <span id="bl-cart-badge" class="badge">0</span>
+                        </a>
+                    </li>',
+                    //['label' => 'Cart', 'url' => ['/cart/index']],
                 ],
             ]);
             NavBar::end();

@@ -19,7 +19,7 @@ $this->title = '北美40 - 从此， 开启半个美式生活';
                         <div class="caption">
                             <h5><?= $product['name'] ?></h5>
                             <p>¥ <?= $product['cn_price'] ?></p>
-                            <p><a href="#" class="btn btn-danger" role="button">喜欢</a> <a href="#" class="btn btn-success" role="button">带走</a></p>
+                            <p><a href="#" class="btn btn-danger" role="button">喜欢</a> <a href="#" class="btn btn-success" onclick="add2Cart(<?= $product['id']?>)"role="button">带走</a></p>
                         </div>
                     </div>
                 </div>

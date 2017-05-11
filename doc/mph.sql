@@ -51,8 +51,8 @@ CREATE TABLE IF NOT EXISTS `cart` (
   `payment` decimal(6,2) NOT NULL,
   `user_id` int(11) NOT NULL,
   `user_name` char(20) NOT NULL,
-  `created_at` int(11) NOT NULL,
-  `updated_at` int(11) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `status` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;

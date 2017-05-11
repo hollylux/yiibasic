@@ -32,39 +32,52 @@ function deleteImg() {
 
 }
 
+function add2Cart(id) {
+    console.log(id);
+    $.ajax({
+        url: ajaxCartUrl,
+        type: 'post',
+        data: {'pid':id},
+        success: function (data) {
+            console.log(data);
+        }
+    });
+}
+
+
 /*
-$(document).ready(function () {
-    console.log('ready');
-    
-    $('.product-index table tbody tr td:nth-child(2)').each(function () {
-        //var imgName = $(this).html().slice(0, -1);
-        $(this).html('<img width=100 height=100 src="./mstore/' + $(this).html() + '">');
-    });
-
-    $('.product-view table tbody tr:nth-child(4) td:nth-child(2)').html(function () {
-        //var imgName = $(this).html().slice(0, -1);
-        $(this).html('<img width=100 height=100 src="./mstore/' + $(this).html() + '">');
-    });
-
-
-    // Load existing production images
-    var prodImg = $('#product-images').val();
-    //console.log(prodImg);
-    if (prodImg) {
-        $('<img src="' + mbase + prodImg + '">').load(function () {
-            $(this).width(150).height(150).appendTo('#bl-prod-img');
-        });
-         TODO: For potential multiple images in future.
-         var images = prodImg.split(";");
-         for (var i = 0; i < images.length - 1; i++) {
-         $('<img src="' + mbase + images[i] + '">').load(function () {
-         $(this).width(150).height(150).appendTo('#bl-prod-img');
-         });
-         }
-    
-    }
-
-    
-});
-*/
+ $(document).ready(function () {
+ console.log('ready');
+ 
+ $('.product-index table tbody tr td:nth-child(2)').each(function () {
+ //var imgName = $(this).html().slice(0, -1);
+ $(this).html('<img width=100 height=100 src="./mstore/' + $(this).html() + '">');
+ });
+ 
+ $('.product-view table tbody tr:nth-child(4) td:nth-child(2)').html(function () {
+ //var imgName = $(this).html().slice(0, -1);
+ $(this).html('<img width=100 height=100 src="./mstore/' + $(this).html() + '">');
+ });
+ 
+ 
+ // Load existing production images
+ var prodImg = $('#product-images').val();
+ //console.log(prodImg);
+ if (prodImg) {
+ $('<img src="' + mbase + prodImg + '">').load(function () {
+ $(this).width(150).height(150).appendTo('#bl-prod-img');
+ });
+ TODO: For potential multiple images in future.
+ var images = prodImg.split(";");
+ for (var i = 0; i < images.length - 1; i++) {
+ $('<img src="' + mbase + images[i] + '">').load(function () {
+ $(this).width(150).height(150).appendTo('#bl-prod-img');
+ });
+ }
+ 
+ }
+ 
+ 
+ });
+ */
 

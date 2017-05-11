@@ -14,8 +14,8 @@ use Yii;
  * @property string $payment
  * @property integer $user_id
  * @property string $user_name
- * @property integer $created_at
- * @property integer $updated_at
+ * @property string $created_at
+ * @property string $updated_at
  * @property integer $status
  */
 class Cart extends \yii\db\ActiveRecord
@@ -34,9 +34,11 @@ class Cart extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['product_id', 'amount', 'price', 'payment', 'user_id', 'user_name', 'created_at', 'updated_at'], 'required'],
-            [['product_id', 'amount', 'user_id', 'created_at', 'updated_at', 'status'], 'integer'],
-            [['price', 'payment'], 'number'],
+            //[['product_id', 'amount', 'price', 'payment', 'user_id', 'user_name', 'created_at', 'updated_at'], 'required'],
+            [['product_id', 'amount', 'price', 'user_id', 'user_name'], 'required'],
+            //[['product_id', 'amount', 'user_id', 'created_at', 'updated_at', 'status'], 'integer'],
+            [['product_id', 'amount', 'user_id',  'status'], 'integer'],
+            [['price', ], 'number'],
             [['user_name'], 'string', 'max' => 20],
         ];
     }
