@@ -19,7 +19,7 @@ class CartSearch extends Cart
     {
         return [
             [['id', 'product_id', 'amount', 'user_id', 'created_at', 'updated_at', 'status'], 'integer'],
-            [['price', 'payment'], 'number'],
+            [['price'], 'number'],
             [['user_name'], 'safe'],
         ];
     }
@@ -64,7 +64,7 @@ class CartSearch extends Cart
             'product_id' => $this->product_id,
             'amount' => $this->amount,
             'price' => $this->price,
-            'payment' => $this->payment,
+           // 'payment' => $this->payment,
             'user_id' => $this->user_id,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,

@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
+
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\CartSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -13,29 +14,32 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="cart-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+<?php // echo $this->render('_search', ['model' => $searchModel]);  ?>
 
     <p>
-        <?= Html::a('Create Cart', ['create'], ['class' => 'btn btn-success']) ?>
+    <?= Html::a('Create Cart', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
-<?php Pjax::begin(); ?>    <?= GridView::widget([
+    <?php Pjax::begin(); ?>    <?=
+    GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-
             'id',
             'product_id',
             'amount',
             'price',
-            'payment',
+            ['label' => 'Sub total',
+                'value' => function($model) {
+                    return $model->price * $model->amount;
+                },],
             // 'user_id',
             // 'user_name',
             // 'created_at',
             // 'updated_at',
             // 'status',
-
             ['class' => 'yii\grid\ActionColumn'],
         ],
-    ]); ?>
+    ]);
+    ?>
 <?php Pjax::end(); ?></div>

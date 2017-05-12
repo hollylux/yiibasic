@@ -19,7 +19,7 @@ $this->title = '北美40 - 从此， 开启半个美式生活';
                         <div class="caption">
                             <h5><?= $product['name'] ?></h5>
                             <p>¥ <?= $product['cn_price'] ?></p>
-                            <p><a href="#" class="btn btn-danger" role="button">喜欢</a> <a href="#" class="btn btn-success" onclick="add2Cart(<?= $product['id']?>)"role="button">带走</a></p>
+                            <p><a href="#" class="btn btn-danger" role="button">喜欢</a> <a href="javascript: add2Cart(<?= $product['id']?>)" class="btn btn-success" role="button">带走</a></p>
                         </div>
                     </div>
                 </div>
@@ -30,6 +30,7 @@ $this->title = '北美40 - 从此， 开启半个美式生活';
             <div class="col-md-3">
                 <h2>商品</h2>
                 <p><a class="btn btn-default" href="./index.php?r=product">商品列表 &raquo;</a></p>
+                <p></p>
             </div>
             <div class="col-md-3">
                 <h2>订单</h2>

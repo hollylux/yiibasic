@@ -33,21 +33,37 @@ function deleteImg() {
 }
 
 function add2Cart(id) {
-    console.log(id);
     $.ajax({
         url: ajaxCartUrl,
         type: 'post',
-        data: {'pid':id},
+        data: {'pid': id},
         success: function (data) {
-            console.log(data);
+            //$('#bl-cart-badge').html(data).hide(500).show(500);
+            $('#bl-cart-badge').html(data).animate({fontSize: 30}, 500).animate({fontSize: 12}, 500);
+            //console.log(data);
+        }
+    });
+}
+
+function countCart() {
+    $.ajax({
+        url: ajaxCartCountUrl,
+        type: 'post',
+        data: {'uid': 0},
+        success: function (data) {
+            //$('#bl-cart-badge').html(data).hide(500).show(500);
+            $('#bl-cart-badge').html(data);
+            //console.log(data);
         }
     });
 }
 
 
+
+$(document).ready(function () {
+    countCart();
+});
 /*
- $(document).ready(function () {
- console.log('ready');
  
  $('.product-index table tbody tr td:nth-child(2)').each(function () {
  //var imgName = $(this).html().slice(0, -1);

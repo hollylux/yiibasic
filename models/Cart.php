@@ -53,7 +53,7 @@ class Cart extends \yii\db\ActiveRecord
             'product_id' => 'Product ID',
             'amount' => 'Amount',
             'price' => 'Price',
-            'payment' => 'Payment',
+            //'payment' => 'Payment',
             'user_id' => 'User ID',
             'user_name' => 'User Name',
             'created_at' => 'Created At',
