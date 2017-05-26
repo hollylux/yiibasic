@@ -3,6 +3,7 @@
 /* @var $content string */
 
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
@@ -22,9 +23,9 @@ AppAsset::register($this);
 
         <script>
             var mbase = '<?= Yii::getAlias('@mstore') ?>/';
-            var ajaxUploadUrl = '<?= Yii::$app->getUrlManager()->createUrl('ajax/upload') ?>';
-            var ajaxCartUrl = '<?= Yii::$app->getUrlManager()->createUrl('ajax/cart') ?>';
-            var ajaxCartCountUrl = '<?= Yii::$app->getUrlManager()->createUrl('ajax/countcart') ?>';
+            var ajaxUploadUrl = '<?= Url::to(['ajax/upload']) ?>';
+            var ajaxCartUrl = '<?= Url::to(['ajax/cart']) ?>';
+            var ajaxCartCountUrl = '<?= Url::to(['ajax/countcart']) ?>';
         </script>
     </head>
     <body>
@@ -59,7 +60,7 @@ AppAsset::register($this);
                             . '</li>'
                             ),
                     '<li>
-                        <a href="/index.php?r=cart/index">
+                        <a href="' . Url::to(['cart/index']) . '">
                          Cart <span id="bl-cart-icon" class="glyphicon glyphicon-shopping-cart"></span> <span id="bl-cart-badge" class="badge"></span>
                         </a>
                         
