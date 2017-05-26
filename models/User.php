@@ -29,7 +29,7 @@ class User extends \yii\base\Object implements \yii\web\IdentityInterface
         '0' => [
             'id' => '0',
             'username' => 'admin',
-            'password' => 'admin',
+            'password' => 'Dunz1Pp',
             'authKey' => 'admin-key-052617',
             'accessToken' => 'admin-token-052617',
         ],

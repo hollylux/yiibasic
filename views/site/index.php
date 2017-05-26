@@ -23,14 +23,17 @@ $this->title = '北美40 - 从此， 开启半个美式生活';
                         <div class="caption">
                             <h5><?= $product['name'] ?></h5>
                             <p>¥ <strong class="price"><?= $product['my_price'] ?></strong> ¥<del class="small"> <?= $product['cn_price'] ?></del>  </p>
-                            <p><a href="#" class="btn btn-danger" role="button">喜欢</a> <a href="javascript: add2Cart(<?= $product['id']?>)" class="btn btn-success" role="button">带走</a></p>
+                            <?php if (!Yii::$app->user->isGuest) { ?>
+                                <p><a href="#" class="btn btn-danger" role="button"><span class="glyphicon glyphicon-heart"></span></a> <a href="javascript: add2Cart(<?= $product['id'] ?>)" class="btn btn-success" role="button">带走</a></p>
+                                    <?php } ?>
+                                <p>宝贝ID： <?=$product['id']?></p>
                         </div>
                     </div>
                 </div>
             <?php } ?>
         </div>
-       
-        </div>
 
     </div>
+
+</div>
 </div>

@@ -18,7 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]);  ?>
     <?php $form = ActiveForm::begin(['action' => ['cart/save']]); ?>
     <p>
-        <?= Html::submitButton('Checkout', ['class' => 'btn btn-primary']) ?>
+        <?= Html::submitButton('结算', ['class' => 'btn btn-primary']) ?>
     </p>
     <?php Pjax::begin(); ?>    <?=
     GridView::widget([
@@ -63,6 +63,6 @@ $this->params['breadcrumbs'][] = $this->title;
     ?>
     <?php Pjax::end(); ?></div>
 <p>
-    <?= Html::submitButton('Checkout', ['class' => 'btn btn-primary']) ?>
+    <?= Html::submitButton('结算', ['class' => 'btn btn-primary']) ?>
 </p>
 <?php ActiveForm::end(); ?>

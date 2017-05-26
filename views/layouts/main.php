@@ -45,11 +45,11 @@ AppAsset::register($this);
             echo Nav::widget([
                 'options' => ['class' => 'navbar-nav navbar-right'],
                 'items' => [
-                    ['label' => 'Home', 'url' => ['/']],
-                    ['label' => 'About', 'url' => ['/site/about']],
+                    ['label' => '全部宝贝', 'url' => ['/']],
+                    ['label' => '关于', 'url' => ['/site/about']],
                    // ['label' => 'Contact', 'url' => ['/site/contact']],
                     Yii::$app->user->isGuest ? (
-                            ['label' => 'Login', 'url' => ['/site/login']]
+                            ['label' => '登录', 'url' => ['/site/login']]
                             ) : (
                             '<li>'
                             . Html::beginForm(['/site/logout'], 'post')
@@ -61,9 +61,8 @@ AppAsset::register($this);
                             ),
                     '<li>
                         <a href="' . Url::to(['cart/index']) . '">
-                         Cart <span id="bl-cart-icon" class="glyphicon glyphicon-shopping-cart"></span> <span id="bl-cart-badge" class="badge"></span>
+                         购物车 <span id="bl-cart-icon" class="glyphicon glyphicon-shopping-cart"></span> <span id="bl-cart-badge" class="badge"></span>
                         </a>
-                        
                     </li>',
                 //['label' => 'Cart', 'url' => ['/cart/index']],
                 ],

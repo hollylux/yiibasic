@@ -58,7 +58,7 @@ class SiteController extends Controller {
      * @return string
      */
     public function actionIndex() {
-        $sql = 'SELECT * FROM product WHERE status=:status';
+        $sql = 'SELECT * FROM product WHERE status=:status order by updated_at desc';
         $products = Product::findBySql($sql, [':status' => Product::STATUS_ACTIVE])->all();
         
         if (! empty($products)) {
