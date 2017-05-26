@@ -118,3 +118,8 @@ a.desc:after {
 .thumbnail > img, .thumbnail a > img{
     height: 260px;
 }
+
+.price{
+    color: red;
+    font-size: 16px;
+}

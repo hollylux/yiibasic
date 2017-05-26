@@ -7,7 +7,11 @@ $this->title = '北美40 - 从此， 开启半个美式生活';
 
     <div class="jumbotron">
         <h1>北美40：从此， 开启半个美式生活</h1>
-        <p class="lead">乐享美国高级连锁Costco, Target, Walmart, Amazon专供， 包邮包税</p>
+        <p class="lead">乐享美国本土高级连锁
+            <img height="30" src="/images/brand_costco.jpg"/>
+            <img height="40" src="/images/brand_target.jpg"/>
+            <img height="30" src="/images/brand_walmart.jpg"/>
+            <img height="30" src="/images/brand_amazon.jpg"/> 专供， 包邮包税</p>
     </div>
     <div class="body-content">
         <div class="row">
@@ -18,32 +22,14 @@ $this->title = '北美40 - 从此， 开启半个美式生活';
                         <hr/>
                         <div class="caption">
                             <h5><?= $product['name'] ?></h5>
-                            <p>¥ <?= $product['cn_price'] ?></p>
+                            <p>¥ <strong class="price"><?= $product['my_price'] ?></strong> ¥<del class="small"> <?= $product['cn_price'] ?></del>  </p>
                             <p><a href="#" class="btn btn-danger" role="button">喜欢</a> <a href="javascript: add2Cart(<?= $product['id']?>)" class="btn btn-success" role="button">带走</a></p>
                         </div>
                     </div>
                 </div>
             <?php } ?>
         </div>
-
-        <div class="row">
-            <div class="col-md-3">
-                <h2>商品</h2>
-                <p><a class="btn btn-default" href="./index.php?r=product">商品列表 &raquo;</a></p>
-                <p></p>
-            </div>
-            <div class="col-md-3">
-                <h2>订单</h2>
-                <p><a class="btn btn-default" href="">订单查询 &raquo;</a></p>
-            </div>
-            <div class="col-md-3">
-                <h2>活动</h2>
-                <p><a class="btn btn-default" href=""> 促销返现 &raquo;</a></p>
-            </div>
-            <div class="col-md-3">
-                <h2>统计</h2>
-                <p><a class="btn btn-default" href=""> 数据统计 &raquo;</a></p>
-            </div>
+       
         </div>
 
     </div>

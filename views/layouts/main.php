@@ -45,9 +45,9 @@ AppAsset::register($this);
             echo Nav::widget([
                 'options' => ['class' => 'navbar-nav navbar-right'],
                 'items' => [
-                    ['label' => 'Home', 'url' => ['/site/index']],
+                    ['label' => 'Home', 'url' => ['/']],
                     ['label' => 'About', 'url' => ['/site/about']],
-                    ['label' => 'Contact', 'url' => ['/site/contact']],
+                   // ['label' => 'Contact', 'url' => ['/site/contact']],
                     Yii::$app->user->isGuest ? (
                             ['label' => 'Login', 'url' => ['/site/login']]
                             ) : (
@@ -65,8 +65,7 @@ AppAsset::register($this);
                         </a>
                         
                     </li>',
-                    
-                    //['label' => 'Cart', 'url' => ['/cart/index']],
+                //['label' => 'Cart', 'url' => ['/cart/index']],
                 ],
             ]);
             NavBar::end();
@@ -84,9 +83,13 @@ AppAsset::register($this);
 
         <footer class="footer">
             <div class="container">
-                <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
 
-                <p class="pull-right"><?= Yii::powered() ?></p>
+                <p class="pull-left">&copy; 北美40 <?= date('Y') ?></p>
+                <p class="pull-right">Supported by: 
+                    <?= Html::img('@web/images/brand_costco.jpg', ['height' => '30']) ?>
+                    <?= Html::img('@web/images/brand_target.jpg', ['height' => '30']) ?>
+                    <?= Html::img('@web/images/brand_walmart.jpg', ['height' => '30']) ?>
+                    <?= Html::img('@web/images/brand_aws.jpg', ['height' => '30']) ?></p>
             </div>
         </footer>
 
