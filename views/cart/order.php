@@ -8,26 +8,34 @@ use yii\widgets\Pjax;
 /* @var $searchModel app\models\CartSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Carts';
+$this->title = 'Carts: Order checked out successfully';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="cart-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
-<?php // echo $this->render('_search', ['model' => $searchModel]);  ?>
-
-    <p>
-    <?= Html::a('Create Cart', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
     <?php Pjax::begin(); ?>    <?=
     GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-            'id',
-            'product_id',
-            'amount',
+            ['label' => 'Image',
+                'attribute' => 'images',
+                'value' => function($model) {
+                    //return $data->images;
+                    return Html::img('@web/mstore/' . $model->images, ['alt' => $model->product_id, 'height' => '100']);
+                },
+                'format' => 'html'],
+            //'product_id',
+            //'amount',
+            ['label' => 'Amount',
+                'headerOptions' => ['style' => 'width:10%'],
+                'format' => 'raw',
+                'value' => function ($model) {
+                    $tmpl = '<span>' . $model->amount . '</span>';
+                    return $tmpl;
+                }],
             'price',
             ['label' => 'Sub total',
                 'value' => function($model) {
@@ -42,4 +50,4 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]);
     ?>
-<?php Pjax::end(); ?></div>
+    <?php Pjax::end(); ?></div>

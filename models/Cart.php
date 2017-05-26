@@ -2,8 +2,6 @@
 
 namespace app\models;
 
-use Yii;
-
 /**
  * This is the model class for table "cart".
  *
@@ -17,28 +15,36 @@ use Yii;
  * @property string $created_at
  * @property string $updated_at
  * @property integer $status
+ * @property integer[] $ids
+ * @property integer[] $amounts
  */
-class Cart extends \yii\db\ActiveRecord
-{
+class Cart extends \yii\db\ActiveRecord {
+
+    public static $STATUS_CHECKEDOUT = 2;
+    public static $STATUS_ACTIVE = 1;
+    public static $USER_ADM = 0;
+    public $ids;
+    public $amounts;
+
     /**
      * @inheritdoc
      */
-    public static function tableName()
-    {
+    public static function tableName() {
         return 'cart';
     }
 
     /**
      * @inheritdoc
      */
-    public function rules()
-    {
+    public function rules() {
         return [
             //[['product_id', 'amount', 'price', 'payment', 'user_id', 'user_name', 'created_at', 'updated_at'], 'required'],
             [['product_id', 'amount', 'price', 'user_id', 'user_name'], 'required'],
             //[['product_id', 'amount', 'user_id', 'created_at', 'updated_at', 'status'], 'integer'],
-            [['product_id', 'amount', 'user_id',  'status'], 'integer'],
-            [['price', ], 'number'],
+            [['product_id', 'amount', 'user_id', 'status'], 'integer'],
+            ['ids', 'each', 'rule' => ['integer']],
+            ['amounts', 'each', 'rule' => ['integer']],
+            [['price',], 'number'],
             [['user_name'], 'string', 'max' => 20],
         ];
     }
@@ -46,8 +52,7 @@ class Cart extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
-    public function attributeLabels()
-    {
+    public function attributeLabels() {
         return [
             'id' => 'ID',
             'product_id' => 'Product ID',
@@ -66,8 +71,8 @@ class Cart extends \yii\db\ActiveRecord
      * @inheritdoc
      * @return CartQuery the active query used by this AR class.
      */
-    public static function find()
-    {
+    public static function find() {
         return new CartQuery(get_called_class());
     }
+
 }

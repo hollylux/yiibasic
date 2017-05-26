@@ -58,6 +58,21 @@ function countCart() {
     });
 }
 
+function increaseAmt(me) {
+    var amtInput = $(me).siblings('input');
+    amtInput.val(parseInt(amtInput.val()) + 1);
+    var price = parseInt($($(me).parent().parent().siblings()[2]).html());
+    var subTotal = $($(me).parent().parent().siblings()[3]).html(parseInt(amtInput.val()) * price);
+}
+
+function decreaseAmt(me) {
+    //console.log(me);
+    var amtInput = $(me).siblings('input');
+    amtInput.val(parseInt(amtInput.val()) - 1);
+    var price = parseInt($($(me).parent().parent().siblings()[2]).html());
+    var subTotal = $($(me).parent().parent().siblings()[3]).html(parseInt(amtInput.val()) * price);
+
+}
 
 
 $(document).ready(function () {

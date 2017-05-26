@@ -3,9 +3,7 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\UploadForm;
 use yii\web\Controller;
-use yii\web\UploadedFile;
 use app\models\Cart;
 use app\models\Product;
 
@@ -44,8 +42,8 @@ class AjaxController extends Controller {
         $model = new Cart();
 
         if (Yii::$app->request->isAjax && $this->loadCart($model) && $model->save()) {
-            Yii::trace($model);
-            return $this->actionCountcart(0); // 0 - admin 
+            //Yii::trace($model);
+            return $this->countCart(0); // 0 - admin 
         }
     }
 
@@ -71,14 +69,17 @@ class AjaxController extends Controller {
         return true;
     }
 
-    public function actionCountcart($uid = 0) {
-        if (Yii::$app->request->isPost) {
-            $uid = Yii::$app->request->post('uid');
-        }
-
+    private function countCart($uid) {
         $sql = 'SELECT count(*) FROM cart WHERE status=1 and user_id=:uid';
         $count = Cart::findBySql($sql, [':uid' => $uid])->scalar();
         return $count;
+    }
+
+    public function actionCountcart() {
+        if (Yii::$app->request->isAjax) {
+            $uid = Yii::$app->request->post('uid');
+            return $this->countCart($uid);
+        }
     }
 
 }
