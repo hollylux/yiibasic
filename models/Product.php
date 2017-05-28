@@ -2,9 +2,6 @@
 
 namespace app\models;
 
-use yii\behaviors\TimestampBehavior;
-
-
 /**
  * This is the model class for table "product".
  *
@@ -20,10 +17,15 @@ use yii\behaviors\TimestampBehavior;
  * @property string $cn_url
  * @property string $created_at
  * @property string $updated_at
+ * @property integer $category
+ * @property integer $favcount
  */
 class Product extends \yii\db\ActiveRecord {
 
     const STATUS_ACTIVE = 1;
+    const CATEGORIES = ['1' => 'kids', '2' => 'mom', '3' => 'dad', '4' => 'luxury', '10' => 'suprise'];
+    const ORDERBY = ['top' => '1', 'price' => '2'];
+
     /**
      * @inheritdoc
      */
@@ -45,14 +47,15 @@ class Product extends \yii\db\ActiveRecord {
             [['images'], 'string', 'max' => 64],
         ];
     }
-/*
-    public function behaviors() {
-        return [
-            TimestampBehavior::className(),
-        ];
-    }
- 
- */
+
+    /*
+      public function behaviors() {
+      return [
+      TimestampBehavior::className(),
+      ];
+      }
+
+     */
 
     /**
      * Adding time.. 
@@ -96,7 +99,7 @@ class Product extends \yii\db\ActiveRecord {
             'description' => 'Description',
             'status' => 'Status',
             'images' => 'Images',
-            'my_price' => 'Retail Price',
+            'my_price' => 'My Price',
             'us_price' => 'US Price',
             'us_url' => 'US URL',
             'cn_price' => 'CN Price',

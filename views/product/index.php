@@ -13,7 +13,8 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="product-index">
 
-    <?php // echo $this->render('_search', ['model' => $searchModel]);  ?>
+    <?php // echo $this->render('_search', ['model' => $searchModel]); 
+    ?>
 
     <p>
         <?= Html::a('Add Product', ['create'], ['class' => 'btn btn-success']) ?>
@@ -30,7 +31,6 @@ $this->params['breadcrumbs'][] = $this->title;
             //[ 'attribute' => 'images', 'headerOptions' => ['style' => 'width:10%'],],
             ['label' => 'Image',
                 'attribute' => 'images',
-                
                 'value' => function($model) {
                     //return $data->images;
                     return Html::img('@web/mstore/' . $model->images, ['alt' => $model->name, 'height' => '100']);
@@ -40,10 +40,11 @@ $this->params['breadcrumbs'][] = $this->title;
             'description',
             //'status',
             //'images',
-            // 'my_price',
-            'us_price',
+            'my_price',
             // 'us_url:url',
             'cn_price',
+            'us_price',
+            'category',
             // 'cn_url:url',
             // 'created_at',
             // 'updated_at',
@@ -56,6 +57,6 @@ $this->params['breadcrumbs'][] = $this->title;
     //$this->registerJsFile('@web/js/product.js', ['position' => \yii\web\View::POS_END]);
     ?>
     <p>
-        <?= Html::a('Add Product', ['create'], ['class' => 'btn btn-success']) ?>
+    <?= Html::a('Add Product', ['create'], ['class' => 'btn btn-success']) ?>
     </p></div>
 

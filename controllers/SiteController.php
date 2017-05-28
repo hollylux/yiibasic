@@ -58,14 +58,10 @@ class SiteController extends Controller {
      * @return string
      */
     public function actionIndex() {
-        $sql = 'SELECT * FROM product WHERE status=:status order by updated_at desc';
-        $products = Product::findBySql($sql, [':status' => Product::STATUS_ACTIVE])->all();
-        
-        if (! empty($products)) {
-            return $this->render('index', ['products' => $products,]);
-        } else {
-            throw new NotFoundHttpException('The requested record does not exist.');
-        }
+        $sql = 'SELECT * FROM product WHERE status=1 order by updated_at desc';
+        $products = Product::findBySql($sql)->all();
+
+        return $this->render('index', ['products' => $products,]);
     }
 
     /**
@@ -82,6 +78,7 @@ class SiteController extends Controller {
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->goBack();
         }
+
         return $this->render('login', [
                     'model' => $model,
         ]);
@@ -122,6 +119,27 @@ class SiteController extends Controller {
      */
     public function actionAbout() {
         return $this->render('about');
+    }
+
+    public function actionCategory($cId) {
+        $sql = 'SELECT * FROM product WHERE status=1 and category=:category order by updated_at desc';
+        $products = Product::findBySql($sql, ['category' => $cId])->all();
+
+        return $this->render('index', ['products' => $products,]);
+    }
+
+    public function actionOrderby($oId) {
+        $sql = 'SELECT * FROM product WHERE status=1 '; 
+        $condition = '';
+        switch ($oId){
+           case $oId === Product::ORDERBY['top']: $condition = 'ORDER BY soldnum desc limit 10 '; break;
+           case $oId === Product::ORDERBY['price']: $condition = 'ORDER BY my_price asc'; break;
+        }
+        
+        $sql = $sql . $condition;
+        $products = Product::findBySql($sql)->all();
+
+        return $this->render('index', ['products' => $products,]);
     }
 
 }

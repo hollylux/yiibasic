@@ -118,7 +118,7 @@ class CartController extends Controller {
             $ids = Yii::$app->request->post('ids');
             $amounts = Yii::$app->request->post('amounts');
             for ($i = 0; $i < count($ids); $i++) {
-                Cart::updateAll(['status' => Cart::$STATUS_CHECKEDOUT, 'amount' => $amounts[$i]], ['id' => $ids[$i], 'user_id' => Cart::$USER_ADM, 'status' => Cart::$STATUS_ACTIVE]);
+                Cart::updateAll(['status' => Cart::STATUS_CHECKEDOUT, 'amount' => $amounts[$i]], ['id' => $ids[$i], 'user_id' => Cart::USER_ADM, 'status' => Cart::STATUS_ACTIVE]);
             }
 
             return $this->redirect(['order']);

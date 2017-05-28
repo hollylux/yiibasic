@@ -20,9 +20,10 @@ namespace app\models;
  */
 class Cart extends \yii\db\ActiveRecord {
 
-    public static $STATUS_CHECKEDOUT = 2;
-    public static $STATUS_ACTIVE = 1;
-    public static $USER_ADM = 0;
+    const STATUS_CHECKEDOUT = 2;
+    const STATUS_ACTIVE = 1;
+    const USER_ADM = 0;
+    
     public $ids;
     public $amounts;
 
