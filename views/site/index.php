@@ -45,7 +45,7 @@ $this->title = '北美40 - 从此， 开启半个美式生活';
                     <div class="col-sm-4 col-md-3">
                         <div class="thumbnail">
                             <img src="/mstore/<?= $product['images'] ?>" alt="<?= $product['description'] ?>">
-                            <hr/>
+                           
                             <div class="caption">
                                 <h5><?= $product['name'] ?></h5>
                                 <p>¥ <strong class="price"><?= $product['my_price'] ?></strong> ¥<del class="small"> <?= $product['cn_price'] ?></del>  (<span class="small"><?= $product['soldnum']?> 已售</span>)</p>

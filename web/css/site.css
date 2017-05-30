@@ -116,7 +116,10 @@ a.desc:after {
 
 /* Customization for thumbnail */
 .thumbnail > img, .thumbnail a > img{
-    height: 260px;
+    height: 220px;
+}
+.thumbnail{
+    height: 360px;
 }
 
 .price{
