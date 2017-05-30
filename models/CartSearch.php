@@ -62,12 +62,12 @@ class CartSearch extends Cart {
             'amount' => $this->amount,
             'price' => $this->price,
             // 'payment' => $this->payment,
-            'user_id' => Cart::$USER_ADM,
+            'user_id' => Cart::USER_ADM,
             //'user_id' => $this->user_id,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
             //'status' => $this->status,
-            'status' => Cart::$STATUS_ACTIVE,
+            'status' => Cart::STATUS_ACTIVE,
         ]);
 
         $query->andFilterWhere(['like', 'user_name', $this->user_name]);

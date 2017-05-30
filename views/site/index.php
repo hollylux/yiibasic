@@ -50,7 +50,8 @@ $this->title = '北美40 - 从此， 开启半个美式生活';
                                 <h5><?= $product['name'] ?></h5>
                                 <p>¥ <strong class="price"><?= $product['my_price'] ?></strong> ¥<del class="small"> <?= $product['cn_price'] ?></del>  (<span class="small"><?= $product['soldnum']?> 已售</span>)</p>
                                 <?php if (!Yii::$app->user->isGuest) { ?>
-                                    <p><a href="#" class="btn btn-danger" role="button"><span class="glyphicon glyphicon-heart"></span></a> <a href="javascript: add2Cart(<?= $product['id'] ?>)" class="btn btn-success" role="button">带走</a></p>
+                                <p><a href="javascript: ajaxProxy({'xId':2,'pId': <?= $product['id'] ?>});" id="bl-btn-fav-<?= $product['id'] ?>" class="btn btn-danger" role="button"><span id="bl-num-fav-<?= $product['id'] ?>"><?= $product['favnum']?></span><span class="glyphicon glyphicon-heart-empty"></span>
+                                    </a> <a href="javascript: ajaxProxy({'xId':3,'pId': <?= $product['id'] ?>});" class="btn btn-success" role="button">带走</a></p>
                                 <?php } ?>
                                 <p>宝贝ID： <?= $product['id'] ?></p>
                             </div>

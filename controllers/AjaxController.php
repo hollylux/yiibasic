@@ -12,6 +12,8 @@ use app\models\Product;
  */
 class AjaxController extends Controller {
 
+    const AJAX_ACTIONS = ['countCart' => '1', 'likeIt' => '2', 'add2Cart' => '3'];
+
     public function actionUpload() {
 //$model = new UploadForm();
         $imageFile = $_FILES['imageFile'];
@@ -38,24 +40,21 @@ class AjaxController extends Controller {
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCart() {
+    private function add2Cart() {
         $model = new Cart();
 
-        if (Yii::$app->request->isAjax && $this->loadCart($model) && $model->save()) {
-            //Yii::trace($model);
-            return $this->countCart(0); // 0 - admin 
+        if (Yii::$app->request->isAjax && $this->populateCart($model) && $model->save()) {
+            return $this->countCart();
         }
     }
 
-    private function loadCart($model) {
-        $req = Yii::$app->request;
-        $pid = $req->post('pid');
-        Yii::trace($pid);
-        $prod = Product::findOne($pid);
+    private function populateCart($model) {
+        $pId = Yii::$app->request->post('params')['pId'];
+        $prod = Product::findOne($pId);
 
-//$data = $prod->attributes;
-//$model->setAttributes($data);
-        $model->product_id = $pid;
+        //$data = $prod->attributes;
+        //$model->setAttributes($data);
+        $model->product_id = $pId;
         $model->amount = 1;
         $model->price = $prod->cn_price;
         $model->user_id = 0;
@@ -69,17 +68,78 @@ class AjaxController extends Controller {
         return true;
     }
 
-    private function countCart($uid) {
+    /*
+      public function actionCountcart() {
+      if (Yii::$app->request->isAjax) {
+      $uid=0; // 0 - admin
+      return $this->aCountCart($uid);
+      }
+      } */
+
+    private function countCart() {
+        $uid = 0; // Yii::$app->request->post('uid');
         $sql = 'SELECT count(*) FROM cart WHERE status=1 and user_id=:uid';
         $count = Cart::findBySql($sql, [':uid' => $uid])->scalar();
         return $count;
     }
 
-    public function actionCountcart() {
-        if (Yii::$app->request->isAjax) {
-            $uid = Yii::$app->request->post('uid');
-            return $this->countCart($uid);
+    private function updateLikeCounter($pId) {
+        /* DAO mode
+          Yii::$app->db->createCommand('UPDATE product SET favnum=favnum + 1 where id=:pId')
+          ->bindValue(':pId', $pId)
+          ->execute();
+         */
+        $product = Product::findOne($pId);
+        $product->updateCounters(['favnum' => 1]);
+        Yii::trace('like updated');
+    }
+
+    private function likeIt($pId) {
+        $retVal = 0;
+        $session = Yii::$app->session;
+        //Yii::trace(Yii::$app->session);
+        $userIDPidIp = Yii::$app->user->id . $pId . Yii::$app->request->getUserIP();
+        Yii::trace('@#userIDPidIp: ' . $userIDPidIp);
+
+        if (! $session->isActive) {
+            $session->open();
+            $session['userIDPidIp'] = $userIDPidIp;
+            Yii::trace('@# open new session: ' . $session['userIDPidIp']);
+            $this->updateLikeCounter($pId);
+            $retVal = 1;
         }
+
+        if ($session['userIDPidIp'] != $userIDPidIp) {
+            // Not updated like counter before
+            Yii::trace('@# set userIDPidIp: ' . $session['userIDPidIp']);
+            $session['userIDPidIp'] = $userIDPidIp;
+            $this->updateLikeCounter($pId);
+            $retVal = 1;
+        }
+
+        return $retVal;
+    }
+
+    public function actionProxy() {
+        $retVal = 0;
+        if (!Yii::$app->request->isAjax) {
+            return $retVal;
+        }
+
+        $params = Yii::$app->request->post('params');
+        Yii::trace($params);
+        switch ($params['xId']) {
+            case AjaxController::AJAX_ACTIONS['countCart']: $retVal = $this->countCart();
+                break;
+            case AjaxController::AJAX_ACTIONS['likeIt']: $retVal = $this->likeIt($params['pId']);
+                break;
+            case AjaxController::AJAX_ACTIONS['add2Cart']: $retVal = $this->add2Cart($params['pId']);
+                break;
+            default: Yii::trace('switch default');
+                break;
+        }
+
+        return $retVal;
     }
 
 }

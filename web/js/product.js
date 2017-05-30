@@ -32,37 +32,11 @@ function deleteImg() {
 
 }
 
-function add2Cart(id) {
-    $.ajax({
-        url: ajaxCartUrl,
-        type: 'post',
-        data: {'pid': id},
-        success: function (data) {
-            //$('#bl-cart-badge').html(data).hide(500).show(500);
-            $('#bl-cart-badge').html(data).animate({fontSize: 30}, 500).animate({fontSize: 12}, 500);
-            //console.log(data);
-        }
-    });
-}
-
-function countCart() {
-    $.ajax({
-        url: ajaxCartCountUrl,
-        type: 'post',
-        data: {'uid': 0},
-        success: function (data) {
-            //$('#bl-cart-badge').html(data).hide(500).show(500);
-            $('#bl-cart-badge').html(data);
-            //console.log(data);
-        }
-    });
-}
-
 function increaseAmt(me) {
     var amtInput = $(me).siblings('input');
     amtInput.val(parseInt(amtInput.val()) + 1);
     var price = parseInt($($(me).parent().parent().siblings()[2]).html());
-    var subTotal = $($(me).parent().parent().siblings()[3]).html(parseInt(amtInput.val()) * price);
+    $($(me).parent().parent().siblings()[3]).html(parseInt(amtInput.val()) * price);
 }
 
 function decreaseAmt(me) {
@@ -70,45 +44,61 @@ function decreaseAmt(me) {
     var amtInput = $(me).siblings('input');
     amtInput.val(parseInt(amtInput.val()) - 1);
     var price = parseInt($($(me).parent().parent().siblings()[2]).html());
-    var subTotal = $($(me).parent().parent().siblings()[3]).html(parseInt(amtInput.val()) * price);
+    $($(me).parent().parent().siblings()[3]).html(parseInt(amtInput.val()) * price);
 
 }
 
+function ajaxProxy(params) {
+    var retVal;
+    $.ajax({
+        url: proxyUrl,
+        type: 'post',
+        data: {'params': params},
+        success: function (data) {
+            //console.log(data);
+            switch (params.xId) {
+                case 1:
+                    countCart(data);
+                    break;
+                case 2:
+                    favMe(data, params);
+                    break;
+                case 3:
+                    add2Cart(data);
+                    break;
+                default:
+                    //console.log('switch default');
+                    break;
+            }
+        }
+    });
+
+}
+
+function countCart(data) {
+    //ajaxProxy({'xId': 1, 'pId': pId});
+    $('#bl-cart-badge').html(data);
+}
+
+function favMe(data, params) {
+    //ajaxProxy({'xId': 2, 'pId': pId});
+    if (data === '1') {
+        $('#bl-num-fav-' + params.pId).html(parseInt($('#bl-num-fav-' + params.pId).html()) + 1);
+    } else {
+        $('#bl-btn-fav-' + params.pId).bind('click', function (e) {
+            e.preventDefault();
+        });
+    }
+}
+
+function add2Cart(data) {
+    $('#bl-cart-badge').html(data).animate({fontSize: 30}, 500).animate({fontSize: 12}, 500);
+}
 
 $(document).ready(function () {
-    countCart();
+    ajaxProxy({'xId': 1}); // countCart
 });
-/*
- 
- $('.product-index table tbody tr td:nth-child(2)').each(function () {
- //var imgName = $(this).html().slice(0, -1);
- $(this).html('<img width=100 height=100 src="./mstore/' + $(this).html() + '">');
- });
- 
- $('.product-view table tbody tr:nth-child(4) td:nth-child(2)').html(function () {
- //var imgName = $(this).html().slice(0, -1);
- $(this).html('<img width=100 height=100 src="./mstore/' + $(this).html() + '">');
- });
- 
- 
- // Load existing production images
- var prodImg = $('#product-images').val();
- //console.log(prodImg);
- if (prodImg) {
- $('<img src="' + mbase + prodImg + '">').load(function () {
- $(this).width(150).height(150).appendTo('#bl-prod-img');
- });
- TODO: For potential multiple images in future.
- var images = prodImg.split(";");
- for (var i = 0; i < images.length - 1; i++) {
- $('<img src="' + mbase + images[i] + '">').load(function () {
- $(this).width(150).height(150).appendTo('#bl-prod-img');
- });
- }
- 
- }
- 
- 
- });
- */
+
+
+
 

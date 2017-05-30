@@ -24,8 +24,7 @@ AppAsset::register($this);
         <script>
             var mbase = '<?= Yii::getAlias('@mstore') ?>/';
             var ajaxUploadUrl = '<?= Url::to(['ajax/upload']) ?>';
-            var ajaxCartUrl = '<?= Url::to(['ajax/cart']) ?>';
-            var ajaxCartCountUrl = '<?= Url::to(['ajax/countcart']) ?>';
+            var proxyUrl = '<?= Url::to(['ajax/proxy']) ?>';
         </script>
     </head>
     <body>

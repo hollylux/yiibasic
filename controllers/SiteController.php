@@ -139,7 +139,7 @@ class SiteController extends Controller {
         $sql = $sql . $condition;
         $products = Product::findBySql($sql)->all();
 
-        return $this->render('index', ['products' => $products,]);
+        return $this->render('index', ['products' => $products]);
     }
 
 }
