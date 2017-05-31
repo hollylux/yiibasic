@@ -35,6 +35,12 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'name',
             'description',
+            ['label'=>'Category',
+                'value'=> function($data){
+                    return $data::CATEGORIES[$data->category];
+                }
+                
+            ],
             // 'status',
             // 'images',
             ['label' => 'Image',

@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use yii\helpers\ArrayHelper;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Product */
@@ -14,11 +15,15 @@ use yii\widgets\ActiveForm;
     <div class="col-sm-12 form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Add' : 'Save', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
-    <div class="col-sm-6 form-group">
+    <div class="col-sm-4 form-group">
         <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
     </div>
-    <div class="col-sm-6 form-group">
+    <div class="col-sm-4 form-group">
         <?= $form->field($model, 'description')->textInput(['maxlength' => true]) ?>
+    </div>
+    <div class="col-sm-4 form-group">
+        <label for="product-category" class="control-label">Category</label>
+        <?= Html::activeDropDownList($model, 'category', $model::CATEGORIES, ['class'=>'form-control']) ?>
     </div>
 
     <div class="col-sm-12 form-group">
@@ -36,23 +41,26 @@ use yii\widgets\ActiveForm;
         <button type="button" id="bl-btn-delete" class="btn btn-warning" onclick="deleteImg();">Delete</button>
         <hr/>
     </div>
-    <div class="col-sm-6 form-group">
+    <div class="col-sm-2 form-group">
         <?= $form->field($model, 'my_price')->textInput(['maxlength' => true]) ?>
     </div>
-    <div class="col-sm-6 form-group">
+     <div class="col-sm-2 form-group">
+        <?= $form->field($model, 'cn_price')->textInput(['maxlength' => true]) ?>
+    </div>
+   
+    <div class="col-sm-2 form-group">
         <?= $form->field($model, 'us_price')->textInput(['maxlength' => true]) ?>
     </div>
 
-    <div class="col-sm-6 form-group">
+    <div class="col-sm-3 form-group">
         <?= $form->field($model, 'us_url')->textInput(['maxlength' => true]) ?>
     </div>
-    <div class="col-sm-6 form-group">
-        <?= $form->field($model, 'cn_price')->textInput(['maxlength' => true]) ?>
-    </div>
-
-    <div class="col-sm-6 form-group">
+     <div class="col-sm-3 form-group">
         <?= $form->field($model, 'cn_url')->textInput(['maxlength' => true]) ?>
     </div>
+   
+
+    
 
     <div class="col-sm-12 form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Add' : 'Save', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

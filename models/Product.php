@@ -23,7 +23,8 @@ namespace app\models;
 class Product extends \yii\db\ActiveRecord {
 
     const STATUS_ACTIVE = 1;
-    const CATEGORIES = ['1' => 'kids', '2' => 'mom', '3' => 'dad', '4' => 'luxury', '10' => 'suprise'];
+    //const CATEGORIES = ['1' => 'kids', '2' => 'mom', '3' => 'dad', '4' => 'luxury', '10' => 'suprise'];
+    const CATEGORIES = ['1' => 'Kids', '2' => 'Hot mom', '3' => 'Cool dad', '4' => 'Luxury', '10' => 'Suprise'];
     const ORDERBY = ['top' => '1', 'price' => '2'];
 
     /**
@@ -40,6 +41,7 @@ class Product extends \yii\db\ActiveRecord {
         return [
             [['name', 'my_price'], 'required'],
             [['status'], 'integer'],
+            [['category'], 'integer'],
             [['my_price', 'us_price', 'cn_price'], 'number'],
             // [['created_at', 'updated_at'], 'safe'],
             [['name'], 'string', 'max' => 60],
@@ -97,6 +99,7 @@ class Product extends \yii\db\ActiveRecord {
             'id' => 'ID',
             'name' => 'Name',
             'description' => 'Description',
+            'category' => 'Category',
             'status' => 'Status',
             'images' => 'Images',
             'my_price' => 'My Price',
