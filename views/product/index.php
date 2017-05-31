@@ -17,7 +17,7 @@ $this->params['breadcrumbs'][] = $this->title;
     ?>
 
     <p>
-        <?= Html::a('Add Product', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('添加商品', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <?php Pjax::begin(); ?>    <?=
     GridView::widget([
@@ -29,7 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             //'images',
             //[ 'attribute' => 'images', 'headerOptions' => ['style' => 'width:10%'],],
-            ['label' => 'Image',
+            ['label' => '图片',
                 'attribute' => 'images',
                 'value' => function($model) {
                     //return $data->images;
@@ -43,12 +43,19 @@ $this->params['breadcrumbs'][] = $this->title;
             'my_price',
             // 'us_url:url',
             'cn_price',
+            'us_cost',
             'us_price',
-            'category',
+            ['label' => '类别(ID)',
+                'attribute' => 'category',
+                'value' => function($model) {
+                    return $model::CATEGORIES[$model->category] . '(' . $model->category . ')';
+                }
+            ],
+            // 'category',
             // 'cn_url:url',
             // 'created_at',
-            // 'updated_at',
-            ['class' => 'yii\grid\ActionColumn', 'header' => 'Actions', 'headerOptions' => ['style' => 'width:10%'],],
+            'updated_at',
+            ['class' => 'yii\grid\ActionColumn', 'header' => 'Actions', 'headerOptions' => ['style' => 'width:6%'],],
         ],
     ]);
     ?>
@@ -57,6 +64,6 @@ $this->params['breadcrumbs'][] = $this->title;
     //$this->registerJsFile('@web/js/product.js', ['position' => \yii\web\View::POS_END]);
     ?>
     <p>
-    <?= Html::a('Add Product', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('添加商品', ['create'], ['class' => 'btn btn-success']) ?>
     </p></div>
 

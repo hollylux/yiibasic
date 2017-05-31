@@ -23,8 +23,8 @@ namespace app\models;
 class Product extends \yii\db\ActiveRecord {
 
     const STATUS_ACTIVE = 1;
-    //const CATEGORIES = ['1' => 'kids', '2' => 'mom', '3' => 'dad', '4' => 'luxury', '10' => 'suprise'];
-    const CATEGORIES = ['1' => 'Kids', '2' => 'Hot mom', '3' => 'Cool dad', '4' => 'Luxury', '10' => 'Suprise'];
+    //const CATEGORIES = ['1' => 'kids', '2' => 'mom', '3' => 'dad', '4' => 'luxury', 10' => 'suprise'];
+    const CATEGORIES = ['1' => '宝宝食品', '2'=>'宝宝防护','10' => '辣妈Hot', '20' => '酷爹Cool', '30' => '轻奢', '40' => '特殊', '50' => '小惊喜', '60' => '其他未分类'];
     const ORDERBY = ['top' => '1', 'price' => '2'];
 
     /**
@@ -97,18 +97,19 @@ class Product extends \yii\db\ActiveRecord {
     public function attributeLabels() {
         return [
             'id' => 'ID',
-            'name' => 'Name',
-            'description' => 'Description',
-            'category' => 'Category',
+            'name' => '名称',
+            'description' => '描述',
+            'category' => '类别',
             'status' => 'Status',
-            'images' => 'Images',
-            'my_price' => 'My Price',
-            'us_price' => 'US Price',
-            'us_url' => 'US URL',
-            'cn_price' => 'CN Price',
-            'cn_url' => 'CN URL',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
+            'images' => '图片',
+            'my_price' => '建议零售价',
+            'us_price' => 'US标价',
+            'us_cost' => 'US估算成本价（加税&邮费）',
+            'us_url' => 'US参考网址',
+            'cn_price' => '国内参考价',
+            'cn_url' => '国内参考网址',
+            'created_at' => '创建日期',
+            'updated_at' => '更新日期',
         ];
     }
 

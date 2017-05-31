@@ -17,23 +17,26 @@ $this->title = '北美40 - 从此， 开启半个美式生活';
     </div>
     <div class="body-content">
         <div class="row">
-            <div class="col-sm-6 col-md-6">
+            <div class="col-sm-8 col-md-8">
             <strong>分类</strong>： 
             <a class="btn btn-default" href="/" role="button">全部</a>
             <a class="btn btn-success" href="<?= Url::to(['site/category', 'cId' => 1]) ?>" role="button">宝宝食品</a>
             <a class="btn btn-warning" href="<?= Url::to(['site/category', 'cId' => 2]) ?>" role="button">宝宝防护</a>
-            <a class="btn btn-danger" href="<?= Url::to(['site/category', 'cId' => 3]) ?>" role="button">辣妈Hot</a>
-            <a class="btn btn-info" href="<?= Url::to(['site/category', 'cId' => 4]) ?>" role="button">酷爹Cool</a>
-            <a class="btn btn-primary" href="<?= Url::to(['site/category', 'cId' => 10]) ?>" role="button">小惊喜 <span class="glyphicon glyphicon-piggy-bank"></span></a>
+            <a class="btn btn-danger" href="<?= Url::to(['site/category', 'cId' => 10]) ?>" role="button">辣妈Hot</a>
+            <a class="btn btn-info" href="<?= Url::to(['site/category', 'cId' => 20]) ?>" role="button">酷爹Cool</a>
+            <a class="btn btn-primary" href="<?= Url::to(['site/category', 'cId' => 30]) ?>" role="button">轻奢</a>
+            <!--
+            <a class="btn btn-primary" href="<?= Url::to(['site/category', 'cId' => 50]) ?>" role="button">小惊喜 <span class="glyphicon glyphicon-piggy-bank"></span></a>
+            -->
             </div>
-            <div class="col-sm-6 col-md-6">
+            <div class="col-sm-4 col-md-4">
             <strong>排序</strong>： 
-            <a class="btn btn-default" href="/" role="button">默认</a>
+            <a class="btn btn-default" href="/" role="button">最近更新</a>
             <!--
             <a class="btn btn-danger" href="/" role="button">最新<span class="glyphicon glyphicon-refresh"></span></a>
             -->
             <a class="btn btn-danger" href="<?= Url::to(['site/orderby', 'oId' => 1]) ?>" role="button">热卖 <span class="glyphicon glyphicon-fire"></span></a>
-            <a class="btn btn-info" href="<?= Url::to(['site/orderby', 'oId' => 2]) ?>" role="button">价格<span class="glyphicon glyphicon-sort-by-order"></span></a>
+            <a class="btn btn-success" href="<?= Url::to(['site/orderby', 'oId' => 2]) ?>" role="button">价格<span class="glyphicon glyphicon-sort-by-order"></span></a>
             </div>
         </div>
         <hr/>
@@ -66,21 +69,26 @@ $this->title = '北美40 - 从此， 开启半个美式生活';
         </div>
         <hr/>
         <div class="row">
-            <div class="col-sm-6 col-md-6">
+            <div class="col-sm-8 col-md-8">
             <strong>分类</strong>： 
             <a class="btn btn-default" href="/" role="button">全部</a>
             <a class="btn btn-success" href="<?= Url::to(['site/category', 'cId' => 1]) ?>" role="button">宝宝食品</a>
             <a class="btn btn-warning" href="<?= Url::to(['site/category', 'cId' => 2]) ?>" role="button">宝宝防护</a>
-            <a class="btn btn-danger" href="<?= Url::to(['site/category', 'cId' => 3]) ?>" role="button">辣妈Hot</a>
-            <a class="btn btn-info" href="<?= Url::to(['site/category', 'cId' => 4]) ?>" role="button">酷爹Cool</a>
-            <a class="btn btn-primary" href="<?= Url::to(['site/category', 'cId' => 10]) ?>" role="button">小惊喜 <span class="glyphicon glyphicon-piggy-bank"></span></a>
+            <a class="btn btn-danger" href="<?= Url::to(['site/category', 'cId' => 10]) ?>" role="button">辣妈Hot</a>
+            <a class="btn btn-info" href="<?= Url::to(['site/category', 'cId' => 20]) ?>" role="button">酷爹Cool</a>
+            <a class="btn btn-primary" href="<?= Url::to(['site/category', 'cId' => 30]) ?>" role="button">轻奢</a>
+            <!--
+            <a class="btn btn-primary" href="<?= Url::to(['site/category', 'cId' => 50]) ?>" role="button">小惊喜 <span class="glyphicon glyphicon-piggy-bank"></span></a>
+            -->
             </div>
-            <div class="col-sm-6 col-md-6">
+            <div class="col-sm-4 col-md-4">
             <strong>排序</strong>： 
-            <a class="btn btn-default" href="/" role="button">默认</a>
+            <a class="btn btn-default" href="/" role="button">最近更新</a>
+            <!--
             <a class="btn btn-danger" href="/" role="button">最新<span class="glyphicon glyphicon-refresh"></span></a>
-            <a class="btn btn-danger" href="/" role="button">热卖 <span class="glyphicon glyphicon-fire"></span></a>
-            <a class="btn btn-info" href="/" role="button">价格<span class="glyphicon glyphicon-sort-by-order"></span></a>
+            -->
+            <a class="btn btn-danger" href="<?= Url::to(['site/orderby', 'oId' => 1]) ?>" role="button">热卖 <span class="glyphicon glyphicon-fire"></span></a>
+            <a class="btn btn-success" href="<?= Url::to(['site/orderby', 'oId' => 2]) ?>" role="button">价格<span class="glyphicon glyphicon-sort-by-order"></span></a>
             </div>
         </div>
     </div>

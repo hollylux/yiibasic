@@ -1,7 +1,7 @@
 function uploadImg() {
 
     if (!$('#imageFile').val()) {
-        alert('Select a file to upload.');
+        alert('请先选择需要上传的图片然后点此按钮');
         return;
     }
 
@@ -25,7 +25,7 @@ function uploadImg() {
 }
 
 function deleteImg() {
-    if (confirm('Delete?')) {
+    if (confirm('确定要删除已经上传的图片?')) {
         $('#bl-prod-img').empty();
         $('#product-images').val('');
     }
