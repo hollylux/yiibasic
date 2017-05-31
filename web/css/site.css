@@ -121,6 +121,11 @@ a.desc:after {
 .thumbnail{
     height: 400px;
 }
+.caption{
+    position: absolute;
+    bottom: 5px;
+    margin-right: 5px;
+}
 
 .price{
     color: red;
