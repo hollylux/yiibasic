@@ -45,7 +45,7 @@ AppAsset::register($this);
                 'options' => ['class' => 'navbar-nav navbar-right'],
                 'items' => [
                     ['label' => '全部宝贝', 'url' => ['/']],
-                    ['label' => '关于', 'url' => ['/site/about']],
+                    ['label' => '常见问题', 'url' => ['/site/about']],
                    // ['label' => 'Contact', 'url' => ['/site/contact']],
                     Yii::$app->user->isGuest ? (
                             ['label' => '登录', 'url' => ['/site/login']]

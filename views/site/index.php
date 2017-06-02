@@ -8,12 +8,16 @@ $this->title = '北美40 - 从此， 开启半个美式生活';
 <div class="site-index">
 
     <div class="jumbotron">
-        <h1>北美40：从此， 开启半个美式生活</h1>
-        <p class="lead">乐享美国本土
+        <h1>北美40：美国原装+包邮+包税</h1>
+        <p class="lead">美国本地专人负责从
             <img height="30" src="/images/brand_costco.jpg"/>
             <img height="40" src="/images/brand_target.jpg"/>
             <img height="30" src="/images/brand_walmart.jpg"/>
-            <img height="30" src="/images/brand_amazon.jpg"/> 连锁专供， 包邮包税</p>
+            <img height="30" src="/images/brand_amazon.jpg"/>
+            采购： 你用的也是美国本地人用的 <span style="font-size: 12px;"><a href="/site/about" target="_blank">更多信息..</a></span>
+             
+        </p>
+        
     </div>
     <div class="body-content">
         <div class="row">
