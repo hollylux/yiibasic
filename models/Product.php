@@ -24,7 +24,7 @@ class Product extends \yii\db\ActiveRecord {
 
     const STATUS_ACTIVE = 1;
     //const CATEGORIES = ['1' => 'kids', '2' => 'mom', '3' => 'dad', '4' => 'luxury', 10' => 'suprise'];
-    const CATEGORIES = ['1' => '宝宝食品', '2' => '宝宝防护', '10' => '辣妈Hot', '20' => '酷爹Cool', '30' => '轻奢', '40' => '特殊', '50' => '小惊喜', '60' => '其他未分类'];
+    const CATEGORIES = ['1' => '宝宝食品', '2' => '宝宝呵护', '10' => '辣妈Hot', '20' => '酷爹Cool', '30' => '轻奢', '40' => '特殊', '50' => '小惊喜', '60' => '其他未分类'];
     const ORDERBY = ['top' => '1', 'price' => '2'];
 
     /**
