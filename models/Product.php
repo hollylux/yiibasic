@@ -104,7 +104,7 @@ class Product extends \yii\db\ActiveRecord {
             'images' => '图片',
             'my_price' => '建议零售价',
             'us_price' => 'US标价',
-            'us_cost' => 'US估算成本价（加税&邮费）',
+            'us_cost' => 'US成本价(加税&邮费）',
             'us_url' => 'US参考网址',
             'cn_price' => '国内参考价',
             'cn_url' => '国内参考网址',

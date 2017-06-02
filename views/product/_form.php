@@ -22,7 +22,7 @@ use yii\helpers\ArrayHelper;
         <?= $form->field($model, 'description')->textInput(['maxlength' => true]) ?>
     </div>
     <div class="col-sm-4 form-group">
-        <label for="product-category" class="control-label">Category</label>
+        <label for="product-category" class="control-label">分类</label>
         <?= Html::activeDropDownList($model, 'category', $model::CATEGORIES, ['class' => 'form-control']) ?>
     </div>
     <div class="col-sm-12 form-group">

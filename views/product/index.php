@@ -36,7 +36,14 @@ $this->params['breadcrumbs'][] = $this->title;
                     return Html::img('@web/mstore/' . $model->images, ['alt' => $model->name, 'height' => '100']);
                 },
                 'format' => 'html'],
-            'name',
+            //'name',
+            ['label' => '名称',
+                'attribute' => 'name',
+                'value'=> function($model){
+                    return Html::a($model->name, ['product/view','id'=>$model->id]);
+                },
+                'format' =>'html',
+            ],
             'description',
             //'status',
             //'images',
