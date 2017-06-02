@@ -35,15 +35,14 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'name',
             'description',
-            ['label'=>'Category',
-                'value'=> function($data){
+            ['label' => '分类',
+                'value' => function($data) {
                     return $data::CATEGORIES[$data->category];
                 }
-                
             ],
             // 'status',
             // 'images',
-            ['label' => 'Image',
+            ['label' => '图片',
                 'value' => function($data) {
                     //return $data->images;
                     return Html::img('@web/mstore/' . $data->images, ['alt' => $data->name, 'height' => '100']);
@@ -51,9 +50,10 @@ $this->params['breadcrumbs'][] = $this->title;
                 'format' => 'html'
             ],
             'my_price',
+            'cn_price',
+            'us_cost',
             'us_price',
             'us_url:url',
-            'cn_price',
             'cn_url:url',
             'created_at',
             'updated_at',
