@@ -1,1 +1,6 @@
 ChangeB1an -> 655cdcedf53e62921addc72ac48a4863
+fre$puv8jewR
+
+Deployment:
+config/db.php
+web/index.php
