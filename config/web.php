@@ -50,7 +50,7 @@ $config = [
     ],
     'params' => $params,
     'aliases' => [
-        '@mstore' => './mstore',
+        '@mstore' => 'mstore',
     ],
 ];
 

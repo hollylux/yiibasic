@@ -101,7 +101,7 @@ class AjaxController extends Controller {
         $userIDPidIp = Yii::$app->user->id . $pId . Yii::$app->request->getUserIP();
         Yii::trace('@#userIDPidIp: ' . $userIDPidIp);
 
-        if (! $session->isActive) {
+        if (!$session->isActive) {
             $session->open();
             $session['userIDPidIp'] = $userIDPidIp;
             Yii::trace('@# open new session: ' . $session['userIDPidIp']);

@@ -5,7 +5,10 @@ function uploadImg() {
         return;
     }
 
-    var formData = new FormData($('form')[0]);
+    //var formData = new FormData($('#bl-prod-form')); // not working
+    //var formData = new FormData($('form')[1]); // works
+    var formData = new FormData();
+    formData.append('imageFile', $('input[type=file]')[0].files[0]);
     $('#bl-btn-upload').prop("disabled", true);
     $.ajax({
         url: ajaxUploadUrl,
@@ -15,11 +18,14 @@ function uploadImg() {
         processData: false, // NEEDED, DON'T OMIT THIS
         success: function (data) {
             var retData = JSON.parse(data);
-            $('<img src="' + mbase + retData.imgURI + '">').load(function () {
+            $('<img src="/' + mbase + retData.imgURI + '">').load(function () {
                 $(this).width(150).height(150).appendTo('#bl-prod-img');
                 $('#product-images').val(retData.imgURI);
             });
             $('#bl-btn-upload').prop("disabled", false);
+        },
+        error: function(data){
+            console.log(data);
         }
     });
 }

@@ -11,7 +11,7 @@ use yii\helpers\ArrayHelper;
 
 <div class="product-form">
 
-    <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
+    <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data', 'id'=>'bl-prod-form']]); ?>
     <div class="col-sm-12 form-group">
         <?= Html::submitButton($model->isNewRecord ? '添加' : '保存', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
@@ -34,7 +34,7 @@ use yii\helpers\ArrayHelper;
     </div>
     <div class="col-sm-4 form-group">
         选择图片
-        <input type="file"  id="imageFile" name="imageFile" />
+        <input type="file" id="imageFile" name="imageFile" />
     </div>
     <div class="col-sm-2 form-group">
         <button type="button" id="bl-btn-upload" class="btn btn-success form-control" onclick="uploadImg();">上传图片</button>
