@@ -2,7 +2,6 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-use yii\helpers\ArrayHelper;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Product */
@@ -26,18 +25,19 @@ use yii\helpers\ArrayHelper;
         <?= Html::activeDropDownList($model, 'category', $model::CATEGORIES, ['class' => 'form-control']) ?>
     </div>
     <div class="col-sm-12 form-group">
-        <label>Image (1 allowed)</label>
+        <label>上传图片 (最多一个)</label>
         <hr/>
         <div id="bl-prod-img">
             <?= Html::img('@web/mstore/' . $model->images, ['alt' => $model->name, 'height' => '100']) ?>
         </div>
     </div>
     <div class="col-sm-4 form-group">
-        选择图片
+        <span id="bl-note-loading" style="display: none;"><?= Html::img('@web/images/loading.gif')?></span>
         <input type="file" id="imageFile" name="imageFile" />
     </div>
     <div class="col-sm-2 form-group">
-        <button type="button" id="bl-btn-upload" class="btn btn-success form-control" onclick="uploadImg();">上传图片</button>
+        <button type="button" id="bl-btn-upload" class="btn btn-success form-control" onclick="uploadImg();">
+            上传图片</button>
     </div>
 
     <div class="col-sm-2 form-group">

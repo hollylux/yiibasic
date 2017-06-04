@@ -10,6 +10,7 @@ function uploadImg() {
     var formData = new FormData();
     formData.append('imageFile', $('input[type=file]')[0].files[0]);
     $('#bl-btn-upload').prop("disabled", true);
+    $('#bl-note-loading').show();
     $.ajax({
         url: ajaxUploadUrl,
         type: 'post',
@@ -22,7 +23,8 @@ function uploadImg() {
                 $(this).width(150).height(150).appendTo('#bl-prod-img');
                 $('#product-images').val(retData.imgURI);
             });
-            $('#bl-btn-upload').prop("disabled", false);
+            //$('#bl-btn-upload').prop("disabled", false);
+             $('#bl-note-loading').hide();
         },
         error: function(data){
             console.log(data);
