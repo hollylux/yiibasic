@@ -28,7 +28,7 @@ use yii\widgets\ActiveForm;
         <label>上传图片 (最多一个)</label>
         <hr/>
         <div id="bl-prod-img">
-            <?= Html::img('@web/mstore/' . $model->images, ['alt' => $model->name, 'height' => '100']) ?>
+            <?= isset($model->images) ? Html::img('@web/mstore/' . $model->images, ['alt' => $model->name, 'height' => '100']) : '' ?>
         </div>
     </div>
     <div class="col-sm-4 form-group">
