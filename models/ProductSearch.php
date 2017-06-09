@@ -76,7 +76,8 @@ class ProductSearch extends Product
             ->andFilterWhere(['like', 'us_url', $this->us_url])
             ->andFilterWhere(['like', 'cn_url', $this->cn_url])
             ->andFilterWhere(['like', 'us_cost', $this->us_cost])
-            ->andFilterWhere(['like', 'updated_at', $this->updated_at]);
+            ->andFilterWhere(['like', 'updated_at', $this->updated_at])
+                ->orderBy('updated_at DESC');
 
         return $dataProvider;
     }
