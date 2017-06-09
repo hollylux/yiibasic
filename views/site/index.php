@@ -51,7 +51,9 @@ $this->title = '北美40 - 从此， 开启半个美式生活';
                     ?>
                     <div class="col-sm-4 col-md-3">
                         <div class="thumbnail">
-                            <img src="/mstore/<?= $product['images'] ?>" alt="<?= $product['description'] ?>">
+                            <a href="<?= Url::to(['product/uview', 'id' => $product['id']])?>">
+                                <img src="/mstore/<?= $product['images'] ?>" alt="<?= $product['description'] ?>">
+                            </a>
                            
                             <div class="caption">
                                 <h5><?= $product['name'] ?></h5>

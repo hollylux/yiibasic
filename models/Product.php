@@ -102,7 +102,7 @@ class Product extends \yii\db\ActiveRecord {
             'category' => '类别',
             'status' => 'Status',
             'images' => '图片',
-            'my_price' => '建议零售价(RMB)',
+            'my_price' => '售价(RMB)',
             'cn_price' => '国内参考价(RMB)',
             'cn_url' => '国内参考网址',
             'us_price' => 'US标价($)',

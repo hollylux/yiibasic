@@ -27,6 +27,12 @@ class ProductController extends Controller {
                 //'only' => ['index'],
                 'rules' => [
                     [
+                        'actions'=>['uview'],
+                        'allow' => true,
+                        'roles'=>['?']
+
+                    ],
+                    [
                         //'actions' => ['index'],
                         'allow' => true,
                         'roles' => ['@'],
@@ -152,6 +158,12 @@ class ProductController extends Controller {
             }
         }
         return $this->render('upload', ['model' => $model]);
+    }
+
+        public function actionUview($id) {
+        return $this->render('uview', [
+                    'model' => $this->findModel($id),
+        ]);
     }
 
 }
