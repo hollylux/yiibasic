@@ -21,25 +21,23 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'name',
             'description',
+            /*
             ['label' => '分类',
                 'value' => function($data) {
                     return $data::CATEGORIES[$data->category];
                 }
-            ],
+            ],*/
             // 'status',
             // 'images',
-            ['label' => '图片',
+            ['label' => '',
                 'value' => function($data) {
                     //return $data->images;
-                    return Html::img('@web/mstore/' . $data->images, ['alt' => $data->name, 'height' => '100']);
+                    return Html::img('@web/mstore/' . $data->images, ['alt' => $data->name, 'height' => '300']) . Html::img('@web/images/wechat_wj.jpg', ['alt' => '加文静购买', 'height' => '200']);
                 },
                 'format' => 'html'
             ],
             'my_price',
-            ['label'=>'扫码联系客服购买',
-                'value' => '<img src="/images/brand_costco.jpg"/>',
-                'format'=>'html',
-            ],
+           
         ],
     ])
     ?>
