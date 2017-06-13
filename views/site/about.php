@@ -9,9 +9,14 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="site-about">
     <h1><?= Html::encode($this->title) ?></h1>
     <ul>
+        <li><strong>为啥买你们的东西</strong>
+            <br/>
+            保证真品， 包国际快递， 包关税
+            <br/><br/>
+        </li>
         <li><strong>如何保证是真品？</strong>
             <br/>
-            均从美国本土大型实体连锁店亲自挑选， 保证原装正品
+            均从美国本土大型实体连锁店亲自挑选， 而且所列都是美国本地给的4星以上的商品 （最高5星）
             <br/><br/>
         </li>
         <li><strong>快递多长时间能收到?</strong>
