@@ -36,7 +36,15 @@ $this->params['breadcrumbs'][] = $this->title;
                 },
                 'format' => 'html'
             ],
-            'my_price',
+            [
+                'label' => '',
+                'value' => function($product){
+                    return '<p>¥ <strong class="price">' . $product['my_price'] . '</strong> ¥<del class="small">' . 
+                    $product['cn_price'] . '</del>  (<span class="small">' . $product['soldnum'] . '已售</span>)</p>';
+                },
+                'format' => 'html',
+            ],
+            //'my_price',
            
         ],
     ])
