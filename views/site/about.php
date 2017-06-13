@@ -43,8 +43,10 @@ $this->params['breadcrumbs'][] = $this->title;
             也经过网站作者居住地附近， 作者时常行驶在这条高速上， 一是以此名表达对这条公路的感激， 二是亲们手里收到的货物很多也是经过这条高速穿过多个州运过来的。 
             <br/><br/>
         </li>
-        <li><strong>如有其他未尽事宜， 请联系国内运营团队微信</strong>
-            <br/><br/>
+        <li><strong>如有其他建议和未尽事宜， 请联系微信</strong>
+            <br/>
+            <img src='/images/wechat_wjo.jpg' height="220"/>
+            <br/>
         </li>
 
 
