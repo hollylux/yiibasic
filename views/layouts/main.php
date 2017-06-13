@@ -54,15 +54,16 @@ AppAsset::register($this);
                             . Html::beginForm(['/site/logout'], 'post')
                             . Html::submitButton(
                                     'Logout (' . Yii::$app->user->identity->username . ')', ['class' => 'btn btn-link logout']
-                            )
+                                    )
                             . Html::endForm()
                             . '</li>'
                             ),
+                    Yii::$app->user->isGuest ?  ('') : (    
                     '<li>
                         <a href="' . Url::to(['cart/index']) . '">
                          购物车 <span id="bl-cart-icon" class="glyphicon glyphicon-shopping-cart"></span> <span id="bl-cart-badge" class="badge"></span>
                         </a>
-                    </li>',
+                    </li>'),
                 //['label' => 'Cart', 'url' => ['/cart/index']],
                 ],
             ]);

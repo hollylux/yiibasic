@@ -32,7 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ['label' => '',
                 'value' => function($data) {
                     //return $data->images;
-                    return Html::img('@web/mstore/' . $data->images, ['alt' => $data->name, 'height' => '300']) . Html::img('@web/images/wechat_wj.jpg', ['alt' => '加文静购买', 'height' => '200']);
+                    return Html::img('@web/mstore/' . $data->images, ['alt' => $data->name, 'height' => '300']) . Html::img('@web/images/wechatwj.jpg', ['alt' => '加文静购买', 'height' => '250']);
                 },
                 'format' => 'html'
             ],
