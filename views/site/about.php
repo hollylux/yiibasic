@@ -50,7 +50,7 @@ $this->params['breadcrumbs'][] = $this->title;
         </li>
         <li><strong>如有其他建议和未尽事宜， 请联系微信</strong>
             <br/>
-            <img src='/images/wechat_wjo.jpg' height="220"/>
+            <img src='/images/us40QR.jpg' height="220"/>
             <br/>
         </li>
 
