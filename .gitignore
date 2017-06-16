@@ -33,5 +33,5 @@ tests/_support/_generated
 /config/db.php
 
 # image store
-/web/mstore
+#/web/mstore
 
