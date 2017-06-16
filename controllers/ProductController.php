@@ -10,7 +10,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\UploadedFile;
-
+use yii\filters\AccessControl;
 
 /**
  * ProductController implements the CRUD actions for Product model.
@@ -22,6 +22,23 @@ class ProductController extends Controller {
      */
     public function behaviors() {
         return [
+            'access' => [
+                'class' => AccessControl::className(),
+                //'only' => ['index'],
+                'rules' => [
+                    [
+                        'actions'=>['uview'],
+                        'allow' => true,
+                        'roles'=>['?']
+
+                    ],
+                    [
+                        //'actions' => ['index'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                ],
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
@@ -141,6 +158,12 @@ class ProductController extends Controller {
             }
         }
         return $this->render('upload', ['model' => $model]);
+    }
+
+        public function actionUview($id) {
+        return $this->render('uview', [
+                    'model' => $this->findModel($id),
+        ]);
     }
 
 }

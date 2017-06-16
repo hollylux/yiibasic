@@ -1,6 +1,28 @@
-ChangeB1an -> 655cdcedf53e62921addc72ac48a4863
-fre$puv8jewR
 
-Deployment:
-config/db.php
-web/index.php
+## ChangeB1an -> 655cdcedf53e62921addc72ac48a4863
+    fre$puv8jewR
+
+    Deployment:
+    config/db.php
+    web/index.php
+
+## Beatify URL
+    - web/.htaccess
+        RewriteEngine on
+        # If a directory or a file exists, use it directly
+        RewriteCond %{REQUEST_FILENAME} !-f
+        RewriteCond %{REQUEST_FILENAME} !-d
+        # Otherwise forward it to index.php
+        RewriteRule . index.php
+
+    - config/web.php
+         'urlManager' => [
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+            'rules' => [
+                '<controller:\w+>/<id:\d+>' => '<controller>/view',
+                '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
+                '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
+            ],
+        ],
+

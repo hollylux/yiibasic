@@ -2,7 +2,6 @@
 
 namespace app\models;
 
-use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use app\models\Product;
@@ -18,9 +17,9 @@ class ProductSearch extends Product
     public function rules()
     {
         return [
-            [['id', 'status'], 'integer'],
-            [['name', 'description', 'images', 'us_url', 'cn_url'], 'safe'],
-            [['my_price', 'us_price', 'cn_price'], 'number'],
+            [['id', 'status', 'category'], 'integer'],
+            [['name', 'description',  'us_url', 'cn_url'], 'safe'],
+            [['my_price', 'us_price', 'cn_price', 'us_cost'], 'number'],
         ];
     }
 
@@ -65,16 +64,20 @@ class ProductSearch extends Product
             //'status' => '$this->status',
             'my_price' => $this->my_price,
             'us_price' => $this->us_price,
+            'us_cost' => $this->us_cost,
             'cn_price' => $this->cn_price,
             //'created_at' => $this->created_at,
-            //'updated_at' => $this->updated_at,
+            'category' => $this->category,
         ]);
 
         $query->andFilterWhere(['like', 'name', $this->name])
             ->andFilterWhere(['like', 'description', $this->description])
-            ->andFilterWhere(['like', 'images', $this->images])
+            //->andFilterWhere(['like', 'images', $this->images])
             ->andFilterWhere(['like', 'us_url', $this->us_url])
-            ->andFilterWhere(['like', 'cn_url', $this->cn_url]);
+            ->andFilterWhere(['like', 'cn_url', $this->cn_url])
+            ->andFilterWhere(['like', 'us_cost', $this->us_cost])
+            ->andFilterWhere(['like', 'updated_at', $this->updated_at])
+                ->orderBy('updated_at DESC');
 
         return $dataProvider;
     }

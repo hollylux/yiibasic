@@ -3,6 +3,7 @@
 /* @var $content string */
 
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
@@ -22,9 +23,8 @@ AppAsset::register($this);
 
         <script>
             var mbase = '<?= Yii::getAlias('@mstore') ?>/';
-            var ajaxUploadUrl = '<?= Yii::$app->getUrlManager()->createUrl('ajax/upload') ?>';
-            var ajaxCartUrl = '<?= Yii::$app->getUrlManager()->createUrl('ajax/cart') ?>';
-            var ajaxCartCountUrl = '<?= Yii::$app->getUrlManager()->createUrl('ajax/countcart') ?>';
+            var ajaxUploadUrl = '<?= Url::to(['ajax/upload']) ?>';
+            var proxyUrl = '<?= Url::to(['ajax/proxy']) ?>';
         </script>
     </head>
     <body>
@@ -44,28 +44,27 @@ AppAsset::register($this);
             echo Nav::widget([
                 'options' => ['class' => 'navbar-nav navbar-right'],
                 'items' => [
-                    ['label' => 'Home', 'url' => ['/site/index']],
-                    ['label' => 'About', 'url' => ['/site/about']],
-                    ['label' => 'Contact', 'url' => ['/site/contact']],
+                    ['label' => '全部宝贝', 'url' => ['/']],
+                    ['label' => '常见问题', 'url' => ['/site/about']],
+                   // ['label' => 'Contact', 'url' => ['/site/contact']],
                     Yii::$app->user->isGuest ? (
-                            ['label' => 'Login', 'url' => ['/site/login']]
+                            ['label' => '登录', 'url' => ['/site/login']]
                             ) : (
                             '<li>'
                             . Html::beginForm(['/site/logout'], 'post')
                             . Html::submitButton(
                                     'Logout (' . Yii::$app->user->identity->username . ')', ['class' => 'btn btn-link logout']
-                            )
+                                    )
                             . Html::endForm()
                             . '</li>'
                             ),
+                    Yii::$app->user->isGuest ?  ('') : (    
                     '<li>
-                        <a href="/index.php?r=cart/index">
-                         Cart <span id="bl-cart-icon" class="glyphicon glyphicon-shopping-cart"></span> <span id="bl-cart-badge" class="badge"></span>
+                        <a href="' . Url::to(['cart/index']) . '">
+                         购物车 <span id="bl-cart-icon" class="glyphicon glyphicon-shopping-cart"></span> <span id="bl-cart-badge" class="badge"></span>
                         </a>
-                        
-                    </li>',
-                    
-                    //['label' => 'Cart', 'url' => ['/cart/index']],
+                    </li>'),
+                //['label' => 'Cart', 'url' => ['/cart/index']],
                 ],
             ]);
             NavBar::end();
@@ -83,9 +82,13 @@ AppAsset::register($this);
 
         <footer class="footer">
             <div class="container">
-                <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
 
-                <p class="pull-right"><?= Yii::powered() ?></p>
+                <p class="pull-left">&copy; 北美40 <?= date('Y') ?></p>
+                <p class="pull-right">Supported by: 
+                    <?= Html::img('@web/images/brand_costco.jpg', ['height' => '30']) ?>
+                    <?= Html::img('@web/images/brand_target.jpg', ['height' => '30']) ?>
+                    <?= Html::img('@web/images/brand_walmart.jpg', ['height' => '30']) ?>
+                    <?= Html::img('@web/images/brand_aws.jpg', ['height' => '30']) ?></p>
             </div>
         </footer>
 

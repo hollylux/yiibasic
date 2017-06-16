@@ -17,7 +17,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <p>
         <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
         <?=
-        Html::aa('Delete', ['delete', 'id' => $model->id], [
+        Html::a('Delete', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => 'Are you sure you want to delete this item?',
@@ -25,7 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
         ])
         ?>
-    <?= Html::a('Add Product', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Add Product', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?=
@@ -35,9 +35,14 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'name',
             'description',
+            ['label' => '分类',
+                'value' => function($data) {
+                    return $data::CATEGORIES[$data->category];
+                }
+            ],
             // 'status',
             // 'images',
-            ['label' => 'Image',
+            ['label' => '图片',
                 'value' => function($data) {
                     //return $data->images;
                     return Html::img('@web/mstore/' . $data->images, ['alt' => $data->name, 'height' => '100']);
@@ -45,9 +50,10 @@ $this->params['breadcrumbs'][] = $this->title;
                 'format' => 'html'
             ],
             'my_price',
+            'cn_price',
+            'us_cost',
             'us_price',
             'us_url:url',
-            'cn_price',
             'cn_url:url',
             'created_at',
             'updated_at',

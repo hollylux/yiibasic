@@ -116,5 +116,23 @@ a.desc:after {
 
 /* Customization for thumbnail */
 .thumbnail > img, .thumbnail a > img{
-    height: 260px;
+    height: 220px;
+}
+.thumbnail{
+    height: 400px;
+}
+.caption{
+    position: absolute;
+    bottom: 5px;
+    margin-right: 5px;
+}
+
+.price{
+    color: red;
+    font-size: 16px;
+}
+
+.jumbotron{
+    padding-bottom: 20px;
+    padding-top: 0px;
 }
